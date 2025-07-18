@@ -1,0 +1,64 @@
+/* education.css */
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  color: gray;
+  margin-bottom: 30px;
+}
+
+.education-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+  display: flex;
+  gap: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+body.dark .education-card {
+  background: #1f1f1f;
+  color: #e0e0e0;
+}
+
+.college-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.education-details h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.education-highlights {
+  margin-top: 10px;
+  list-style: none;
+  padding-left: 0;
+}
+.education-highlights li {
+  margin: 5px 0;
+}
+
+.certificate-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: #6200ea;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+}

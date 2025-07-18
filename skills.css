@@ -1,0 +1,222 @@
+body {
+  font-family: 'Barlow Condensed', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #222;
+}
+
+.skills-section {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.skills-title {
+  font-size: 2.2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.skills-title span {
+  color: #6c63ff;
+}
+
+.skill-category {
+  font-size: 1.5rem;
+  margin-top: 25px;
+  color: #444;
+  border-left: 6px solid #6c63ff;
+  padding-left: 10px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.skill-box {
+  background-color: #e7e8ff;
+  color: #333;
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.skill-box:hover {
+  background-color: #6c63ff;
+  color: #fff;
+}
+/* ========================
+   Theme Toggle Custom Styling
+======================== */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.theme-toggle label {
+  font-size: 1.2rem;
+  color: #6c5ce7;
+}
+
+.theme-toggle select {
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #8e44ad, #3498db);
+  color: white;
+  font-weight: bold;
+  outline: none;
+  appearance: none;
+  box-shadow: 0 0 8px rgba(142, 68, 173, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Arrow for dropdown (optional improvement) */
+.theme-toggle select::-ms-expand {
+  display: none;
+}
+
+.theme-toggle select:hover {
+  background: linear-gradient(135deg, #9b59b6, #2980b9);
+  box-shadow: 0 0 12px rgba(142, 68, 173, 0.6);
+}
+
+/* ========================
+   Dropdown Option Styling
+======================== */
+.theme-toggle select option {
+  color: black;
+  font-weight: 500;
+  background-color: #f0f0f0;
+}
+
+.theme-toggle select option:checked {
+  background-color: #dcdde1;
+  color: #2d3436;
+}
+
+
+
+
+
+
+/* Base Styles */
+.skills-section {
+  padding: 60px 20px;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.skills-section .section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.skills-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Column Styles */
+.skills-column {
+  flex: 1;
+  min-width: 300px;
+}
+
+.column-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+/* Progress Bars */
+.skill {
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  background: #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 20px;
+  margin-top: 5px;
+}
+
+.progress {
+  height: 100%;
+  background: var(--primary-color);
+  color: #fff;
+  text-align: right;
+  padding-right: 10px;
+  line-height: 20px;
+  border-radius: 10px 0 0 10px;
+}
+
+/* Circular Skills */
+.circular-skill {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+/* Circle Style */
+.circle {
+  --size: 120px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: conic-gradient(var(--primary-color) calc(var(--percent) * 1%), #ddd 0%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.circle::before {
+  content: attr(data-label);
+  position: absolute;
+  bottom: -25px;
+  text-align: center;
+  width: 100%;
+  font-size: 0.85rem;
+  color: var(--text-color);
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .skills-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .circular-skill {
+    justify-content: center;
+  }
+
+  .circle {
+    --size: 100px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}
