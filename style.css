@@ -161,31 +161,79 @@ header {
   left: -20px;
 }
 
-/* ===== Social Sidebar ===== */
+/* ===== Social Sidebar with Enhanced Light Animation ===== */
 .social-left {
   position: fixed;
-  top: 40%;
-  left: 0;
-  transform: translateY(-50%);
+  top: 8%;
+  left: 20px;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding: 10px;
-  z-index: 100;
+  z-index: 1000;
+  animation: slideFadeIn 1s ease forwards;
+  opacity: 0;
 }
 
+/* Icons styling */
 .social-left a {
   color: #333;
-  font-size: 1.5rem;
-  padding: 10px;
-  transition: all 0.3s ease;
+  font-size: 22px;
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
+/* Hover effect: zoom + brightness + glow */
 .social-left a:hover {
-  color: #fff;
-  background-color: var(--highlight);
-  border-radius: 50%;
+  transform: scale(1.25);
+  filter: brightness(1.4);
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
 }
+
+/* Light sweep pseudo-element */
+.social-left a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.7), transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+/* Trigger animation on hover */
+.social-left a:hover::before {
+  animation: lightSweep 0.7s ease-in-out forwards;
+}
+
+/* Entry animation */
+@keyframes slideFadeIn {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Light sweep animation */
+@keyframes lightSweep {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+
+
+
 
 /* ===== Animations ===== */
 @keyframes rotateBorder {

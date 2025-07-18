@@ -14,12 +14,19 @@
   <link rel="stylesheet" href="skills.css" />
   <link rel="stylesheet" href="projects.css" />
   <link rel="stylesheet" href="Contact.css" />
+<link rel="stylesheet" href="css/certifications.css">
+<link rel="stylesheet" href="myskills.css"> 
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600&display=swap" rel="stylesheet" />
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="certifications.css" />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600&display=swap" rel="stylesheet">
+
+
 </head>
 <body>
 <header>
@@ -126,6 +133,8 @@
       <div class="cert-card"><img src="niit.png" alt=""><h4>Networking Essentials</h4><p>Niit Funndation</p><a href="niitfu.jpeg" target="_blank">View</a></div>
       </div>
     </section>
+
+
  <!-- Skills Section -->
     <section class="skills-section" id="skills">
       <h3 class="skills-title">Programming <span>SkillSet</span></h3>
@@ -165,9 +174,7 @@
 
 
 
-
-
-    <section id="skills" class="skills-section">
+  <section id="skills" class="skills-section">
   <h2 class="section-title">My <span>Skills</span></h2>
 
   <div class="skills-container">
@@ -209,6 +216,9 @@
     </div>
   </div>
 </section>
+
+
+
 
 
 
@@ -284,6 +294,7 @@
     </div>
   </div>
 </section>
+
 
 
 
@@ -392,6 +403,29 @@
       if (link.getAttribute("href").includes(current)) {
         link.classList.add("active");
       }
+    });
+  });
+</script>
+
+
+
+
+
+
+<script>
+  document.querySelectorAll('.cert-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = -(y - centerY) / 20;
+      const rotateY = (x - centerX) / 20;
+      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
     });
   });
 </script>

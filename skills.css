@@ -220,3 +220,119 @@ body {
     font-size: 2rem;
   }
 }
+
+
+
+
+
+/* Basic header style */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* logo left, menu right */
+  padding: 10px 20px;
+  background-color: #0b0c2a;
+  color: #00f5ff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo style */
+.logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #00f5ff;
+}
+
+/* Nav menu desktop style */
+nav.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* Links */
+nav.nav-menu a {
+  color: #00f5ff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+nav.nav-menu a:hover {
+  background-color: #00f5ff33;
+  color: #ffffff;
+}
+
+/* Theme toggle inside menu on desktop */
+nav.nav-menu .theme-toggle {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.theme-toggle label {
+  font-weight: 600;
+}
+
+.theme-toggle select {
+  background-color: transparent;
+  border: none;
+  color: #00f5ff;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Hamburger menu icon hidden on desktop */
+.menu-icon {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #00f5ff;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  /* Hide nav menu initially */
+  nav.nav-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #0b0c2a;
+    position: fixed;
+    top: 60px;
+    right: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #00f5ffaa;
+    width: 200px;
+    z-index: 2000;
+  }
+
+  /* Show menu when active */
+  nav.nav-menu.active {
+    display: flex;
+  }
+
+  /* Show hamburger */
+  .menu-icon {
+    display: block;
+  }
+
+  /* Links bigger touch targets on mobile */
+  nav.nav-menu a {
+    padding: 10px;
+    font-size: 18px;
+  }
+
+  /* Theme toggle inside menu */
+  nav.nav-menu .theme-toggle {
+    margin: 15px 0 0 0;
+  }
+}
