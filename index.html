@@ -14,23 +14,33 @@
   <link rel="stylesheet" href="projects.css" />
   <link rel="stylesheet" href="Contact.css" />
 
-
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600&display=swap" rel="stylesheet" />
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
 </head>
 <body>
-  <!-- Header -->
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">AB</div>
+    <nav class="sidebar-nav">
+      <a href="#home"><i class="fas fa-house"></i><span>Home</span></a>
+      <a href="#education"><i class="fas fa-graduation-cap"></i><span>Education</span></a>
+      <a href="#projects"><i class="fas fa-briefcase"></i><span>Projects</span></a>
+      <a href="#skills"><i class="fas fa-code"></i><span>Skills</span></a>
+      <a href="#about"><i class="fas fa-user"></i><span>About</span></a>
+      <a href="#contact"><i class="fas fa-envelope"></i><span>Contact</span></a>
+    </nav>
+  </aside>
+
+  <!-- Toggle Button for Sidebar (Mobile View) -->
+  <button class="sidebar-toggle" onclick="toggleSidebar()">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- Header (Optional: You can remove or hide this if using only sidebar) -->
   <header>
     <h1 class="logo">Aakash Barasiya</h1>
     <nav>
@@ -48,44 +58,56 @@
         <option value="dark">🌙 Dark</option>
         <option value="auto" selected>⚙️ Auto</option>
       </select>
-
-
-
     </div>
   </header>
 
   <!-- Main Content -->
   <main>
-<section id="home" class="hero">
-  <canvas id="hero-canvas"></canvas>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <canvas id="hero-canvas"></canvas>
 
-  <div class="hero-container">
-    <!-- Left: Text Content -->
-    <div class="hero-text">
-      <p class="fade-in">Hi There!</p>
-      <h2 class="slide-up">I'm <span class="highlight">Aakash Barasiya</span></h2>
-      <p class="fade-in delay-1 programmer-tag">&lt; Programmer &gt;</p>
-      <p class="fade-in delay-2">I am a <span class="highlight">Frontend Developer</span></p>
-      <p class="fade-in delay-3">Feel free to <span class="highlight">connect</span> with me.</p>
+      <div class="hero-container">
+        <!-- Left: Text Content -->
+        <div class="hero-text">
+          <p class="fade-in">Hi There!</p>
+          <h2 class="slide-up">I'm <span class="highlight">Aakash Barasiya</span></h2>
+          <p class="fade-in delay-1 programmer-tag">&lt; Programmer &gt;</p>
+          <p class="fade-in delay-2">I am a <span class="highlight">Frontend Developer</span></p>
+          <p class="fade-in delay-3">Feel free to <span class="highlight">connect</span> with me.</p>
 
-      <!-- Social Links (optional near text) -->
-      <div class="social-icons">
-        <a href="https://github.com/barasiya" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/aakash-barasiya-13173b215" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/aakash.barasiya" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="mailto:aakashbarasiya2001@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://wa.me/919575133239?text=Hi%20Aakash%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <!-- Social Links -->
+          <div class="social-icons">
+            <a href="https://github.com/barasiya" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/aakash-barasiya-13173b215" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/aakash.barasiya" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:aakashbarasiya2001@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://wa.me/919575133239?text=Hi%20Aakash%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Right: Image -->
+        <div class="hero-img fade-in delay-2">
+          <div class="tilt-container">
+            <img src="aakash.jpg" alt="Aakash Barasiya" />
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Right: Image -->
-    <div class="hero-img fade-in delay-2">
-  <div class="tilt-container">
-    <img src="aakash.jpg" alt="Aakash Barasiya" />
-  </div>
-</div>
+    <!-- Continue with other sections: education, projects, skills, about, contact -->
 
-</section>
+  </main>
+
+  <!-- JavaScript for sidebar toggle -->
+  <script>
+    function toggleSidebar() {
+      document.querySelector('.sidebar').classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
+
 
 
     <!-- Education Section -->
