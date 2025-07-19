@@ -28,22 +28,3 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () 
 });
 
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const text = "Hi Everyone, I am Aakash Barasiya from Madhya Pradesh, India.";
-  const element = document.querySelector(".about-text");
-  let index = 0;
-  const speed = 30;
-
-  function typeWriter() {
-    if (index < text.length) {
-      element.textContent += text.charAt(index);
-      index++;
-      setTimeout(typeWriter, speed);
-    }
-  }
-
-  element.textContent = "";
-  typeWriter();
-});
-</script>

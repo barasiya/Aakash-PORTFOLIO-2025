@@ -1,225 +1,210 @@
-/* ===== About Section (Futuristic CS Style with Real 3D Touch) ===== */
+/* ===== General Container ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== About Section: Futuristic 3D with Glassmorphism ===== */
 .about-section {
   padding: 100px 20px;
-  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
-  color: #ffffff;
+  background: linear-gradient(to right, #f0faff, #ffffff);
   font-family: 'Barlow Condensed', sans-serif;
+  color: #222;
   overflow-x: hidden;
 }
 
+/* ===== About Content ===== */
 .about-content {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
-  gap: 50px;
-  perspective: 1200px;
-  animation: fadeIn 1.2s ease forwards;
+  align-items: center;
+  gap: 60px;
+  perspective: 1400px;
+  animation: fadeIn 1.3s ease-in-out forwards;
 }
 
-/* === Profile Image with Glow and Floating Effect === */
+/* ===== Profile Image Wrapper ===== */
 .profile-image-wrapper {
   position: relative;
-  width: 270px;
-  height: 270px;
+  width: 280px;
+  height: 280px;
   border-radius: 50%;
-  background: radial-gradient(circle at 50% 50%, #00ffff44, #00ffff11, transparent);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3), 0 0 60px rgba(0, 255, 255, 0.2);
+  background: radial-gradient(circle, #007bff44 0%, transparent 70%);
+  box-shadow: inset 0 0 15px rgba(0, 123, 255, 0.2), 0 0 50px rgba(0, 123, 255, 0.15);
   animation: floatImage 6s ease-in-out infinite;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
 }
 
 .profile-image-wrapper::before {
   content: '';
   position: absolute;
-  width: 280px;
-  height: 280px;
+  width: 290px;
+  height: 290px;
   border-radius: 50%;
-  border: 3px solid rgba(0, 255, 255, 0.4);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
-  animation: rotateRing 8s linear infinite;
+  border: 4px dashed rgba(0, 123, 255, 0.3);
+  animation: rotateRing 10s linear infinite;
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.15);
 }
 
 .profile-img {
-  width: 250px;
-  height: 250px;
+  width: 240px;
+  height: 240px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.5), 0 0 50px rgba(0, 255, 255, 0.1);
   transition: transform 0.6s ease, box-shadow 0.6s ease;
-  transform-style: preserve-3d;
+  box-shadow: 0 0 30px rgba(0, 123, 255, 0.4);
   z-index: 2;
 }
 
 .profile-img:hover {
-  transform: rotateY(18deg) rotateX(6deg) scale(1.07);
-  box-shadow: 0 0 35px rgba(0, 255, 255, 0.7), 0 0 80px rgba(0, 255, 255, 0.2);
+  transform: rotateY(15deg) rotateX(5deg) scale(1.05);
+  box-shadow: 0 0 40px rgba(0, 123, 255, 0.6);
 }
 
-/* === Glassmorphic Info Block with Glow === */
+/* ===== About Text Block ===== */
 .about-text-block {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  border-radius: 20px;
-  padding: 35px 40px;
-  max-width: 650px;
-  box-shadow: 0 0 40px rgba(0, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  border-radius: 24px;
+  padding: 40px;
+  max-width: 700px;
+  box-shadow: 0 0 45px rgba(0, 123, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  animation: slideUp 1.4s ease 0.4s forwards;
   transform: translateY(40px);
   opacity: 0;
-  animation: slideUp 1.5s ease 0.4s forwards;
-  transition: all 0.4s ease;
-}
-
-.about-text-block:hover {
-  box-shadow: 0 0 60px rgba(0, 255, 255, 0.2);
+  transition: 0.4s ease all;
+  text-align: center;
 }
 
 .about-title {
-  font-size: 44px;
-  color: #00ffff;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #00ffff;
+  font-size: 42px;
+  color: #007bff;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #007bff;
   display: inline-block;
 }
 
-/* Typing Cursor Effect */
-.about-text::after {
-  content: '|';
-  animation: blink 1s infinite;
-  margin-left: 4px;
-}
-
 .about-text {
-  font-size: 19px;
-  line-height: 1.75;
-  color: #d4f4ff;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #333;
   letter-spacing: 0.3px;
 }
 
-/* === Neon Resume Button === */
+/* ===== Resume Button ===== */
 .resume-btn {
-  margin-top: 25px;
-  padding: 14px 30px;
-  background: linear-gradient(135deg, #00ffff, #007bff);
-  color: #000;
+  margin-top: 24px;
+  padding: 14px 32px;
+  font-size: 17px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #007bff, #00cfff);
+  color: white;
   text-decoration: none;
   border-radius: 14px;
-  font-weight: bold;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-size: 17px;
+  box-shadow: 0 0 25px rgba(0, 123, 255, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: inline-block;
 }
 
 .resume-btn:hover {
-  transform: scale(1.08) translateY(-4px);
-  box-shadow: 0 0 35px rgba(0, 255, 255, 0.7);
+  transform: scale(1.07) translateY(-5px);
+  box-shadow: 0 0 40px rgba(0, 123, 255, 0.5);
 }
 
-/* === Social Icons with Rotate & Glow === */
-.social-icons {
-  margin-top: 30px;
-  display: flex;
-  gap: 22px;
-}
-
+/* ===== Social Icons ===== */
 .social-icons a {
   font-size: 28px;
-  color: #cccccc;
-  transition: transform 0.5s ease, color 0.4s ease, text-shadow 0.3s ease;
+  color: #444;
+  transition: 0.4s ease;
+  margin: 0 12px;
 }
 
 .social-icons a:hover {
-  transform: rotateY(20deg) scale(1.3);
-  color: #00ffff;
-  text-shadow: 0 0 10px #00ffff;
+  transform: scale(1.3) rotate(10deg);
+  color: #007bff;
+  text-shadow: 0 0 12px #007bff;
 }
 
-/* === CS Icons Section === */
-.cs-icons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 35px;
-  margin-top: 60px;
-  animation: fadeIn 1.5s ease forwards;
-}
-
+/* ===== CS Skills Icons ===== */
 .icon-box {
   text-align: center;
-  color: #00ffff;
-  background: rgba(255, 255, 255, 0.03);
-  padding: 20px 25px;
-  border-radius: 18px;
-  width: 120px;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+  padding: 18px 24px;
+  border-radius: 20px;
+  width: 110px;
+  background: rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.12);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  backdrop-filter: blur(8px);
-}
-
-.icon-box i {
-  font-size: 32px;
-  margin-bottom: 12px;
-  text-shadow: 0 0 10px #00ffff;
-}
-
-.icon-box span {
-  font-size: 15px;
-  color: #dff;
-  display: block;
-  margin-top: 5px;
-  letter-spacing: 0.5px;
 }
 
 .icon-box:hover {
-  transform: scale(1.1) rotateX(10deg) rotateY(8deg);
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+  transform: rotateX(12deg) rotateY(8deg) scale(1.08);
+  box-shadow: 0 0 30px rgba(0, 123, 255, 0.2);
 }
 
-/* === Animations === */
+/* ===== Animations ===== */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(80px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(70px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes blink {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes floatImage {
-  0%, 100% {
-    transform: translateY(0px) rotateZ(0deg);
-  }
-  50% {
-    transform: translateY(-12px) rotateZ(1.5deg);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
 }
 
 @keyframes rotateRing {
-  0% {
-    transform: rotate(0deg) scale(1);
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    gap: 40px;
   }
-  100% {
-    transform: rotate(360deg) scale(1.03);
+
+  .profile-image-wrapper {
+    width: 200px;
+    height: 200px;
+  }
+
+  .profile-image-wrapper::before {
+    width: 210px;
+    height: 210px;
+  }
+
+  .profile-img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .about-title {
+    font-size: 30px;
+  }
+
+  .about-text {
+    font-size: 16px;
+  }
+
+  .resume-btn {
+    font-size: 15px;
+    padding: 12px 24px;
+  }
+
+  .icon-box {
+    width: 90px;
+    padding: 14px 18px;
   }
 }
