@@ -1,0 +1,198 @@
+/* ===== Reset & Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Barlow Condensed', sans-serif;
+  background: #ffffff;
+  color: #222;
+  overflow-x: hidden;
+}
+
+/* ===== Container Wrapper ===== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+/* ===== Certifications Section ===== */
+#certifications {
+  background: #ffffff;
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===== Section Title ===== */
+.section-subtitle {
+  text-align: center;
+  font-size: 40px;
+  color: #0c4a6e;
+  margin-bottom: 60px;
+  animation: fadeInDown 1s ease forwards;
+}
+
+/* ===== Certifications Grid ===== */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  width: 100%;
+}
+
+/* ===== Certificate Card ===== */
+.cert-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 22px;
+  padding: 30px;
+  backdrop-filter: blur(16px) saturate(180%);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  animation: zoomIn 0.6s ease forwards;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Hover Effects */
+.cert-card:hover {
+  transform: rotateX(5deg) rotateY(8deg) scale(1.05);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+.cert-card:active {
+  transform: scale(1.02) rotateX(1deg) rotateY(3deg);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Glow Border */
+.cert-card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  background: linear-gradient(135deg, #00feba, #5bffea);
+  z-index: -1;
+  filter: blur(25px);
+  opacity: 0.08;
+  border-radius: 25px;
+  transition: opacity 0.4s ease;
+}
+.cert-card:hover::before {
+  opacity: 0.2;
+}
+
+/* Image Styling */
+.cert-card img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.2));
+  animation: fadeIn 1s ease forwards;
+  max-width: 100%;
+}
+
+/* Text */
+.cert-card h4 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #111;
+}
+.cert-card p {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+/* View Certificate Button */
+.cert-card a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(135deg, #0077b6, #00c9ff);
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(0, 201, 255, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cert-card a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00c9ff, 0 0 30px #00c9ff;
+  background: linear-gradient(135deg, #00c9ff, #0077b6);
+}
+
+/* ===== Animations ===== */
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ===== Responsive: Mobile Devices ===== */
+@media (max-width: 768px) {
+  #certifications {
+    padding: 60px 15px;
+  }
+
+  .section-subtitle {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  .cert-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .cert-card {
+    padding: 20px;
+  }
+
+  .cert-card img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .cert-card h4 {
+    font-size: 18px;
+  }
+
+  .cert-card p {
+    font-size: 14px;
+  }
+
+  .cert-card a {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
