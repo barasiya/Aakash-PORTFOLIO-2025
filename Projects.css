@@ -29,12 +29,10 @@
   will-change: transform;
 }
 
-/* ===== Hover Animation (Only on hover-capable devices) ===== */
-@media (hover: hover) {
-  .project-box:hover {
-    transform: rotateX(6deg) rotateY(6deg) scale(1.03);
-    box-shadow: 0 25px 35px rgba(0, 0, 0, 0.2);
-  }
+/* ===== Hover Animation (All Devices) ===== */
+.project-box:hover {
+  transform: rotateX(6deg) rotateY(6deg) scale(1.03);
+  box-shadow: 0 25px 35px rgba(0, 0, 0, 0.2);
 }
 
 /* ===== Project Content ===== */
@@ -66,27 +64,29 @@
   border-color: #007acc;
 }
 
-/* ===== Responsive Design ===== */
+/* ===== Responsive Design (Same 3D look on mobile) ===== */
 @media (max-width: 768px) {
   .projects-section {
     padding: 40px 15px;
   }
 
   .projects-container {
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.5rem;
   }
 
   .project-box {
-    width: 100%;
-    max-width: 100%;
-    padding: 16px;
-    transform: none !important; /* disable 3D effect on mobile */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    flex: 0 0 85%;
+    max-width: 85%;
+    scroll-snap-align: center;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   }
 
   .project-title {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   .project-desc,
