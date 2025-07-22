@@ -1,3 +1,12 @@
+/* ===== Root Setup ===== */
+:root {
+  --primary-color: #00f5ff;
+  --bg-light: #f0faff;
+  --text-dark: #222;
+  --highlight: #007bff;
+  --font: 'Barlow Condensed', sans-serif;
+}
+
 /* ===== General Container ===== */
 .container {
   max-width: 1200px;
@@ -5,16 +14,16 @@
   padding: 0 20px;
 }
 
-/* ===== About Section: Futuristic 3D with Glassmorphism ===== */
+/* ===== About Section Styling ===== */
 .about-section {
   padding: 100px 20px;
-  background: linear-gradient(to right, #f0faff, #ffffff);
-  font-family: 'Barlow Condensed', sans-serif;
-  color: #222;
+  background: linear-gradient(to right, var(--bg-light), #ffffff);
+  font-family: var(--font);
+  color: var(--text-dark);
   overflow-x: hidden;
 }
 
-/* ===== About Content ===== */
+/* ===== Content Flex Wrapper ===== */
 .about-content {
   display: flex;
   flex-wrap: wrap;
@@ -28,42 +37,59 @@
 /* ===== Profile Image Wrapper ===== */
 .profile-image-wrapper {
   position: relative;
-  width: 280px;
-  height: 280px;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
-  background: radial-gradient(circle, #007bff44 0%, transparent 70%);
-  box-shadow: inset 0 0 15px rgba(0, 123, 255, 0.2), 0 0 50px rgba(0, 123, 255, 0.15);
-  animation: floatImage 6s ease-in-out infinite;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: radial-gradient(circle at center, #00f5ff22, transparent 70%);
+  box-shadow: 0 0 40px rgba(0, 245, 255, 0.3), inset 0 0 30px rgba(0, 123, 255, 0.2);
+  animation: floatImage 6s ease-in-out infinite;
+  overflow: hidden;
   transform-style: preserve-3d;
 }
 
-.profile-image-wrapper::before {
-  content: '';
+/* ===== Neon Glow Ring ===== */
+.glow-ring {
   position: absolute;
-  width: 290px;
-  height: 290px;
+  width: 280px;
+  height: 280px;
+  border: 4px solid transparent;
   border-radius: 50%;
-  border: 4px dashed rgba(0, 123, 255, 0.3);
-  animation: rotateRing 10s linear infinite;
-  box-shadow: 0 0 20px rgba(0, 123, 255, 0.15);
+  background: conic-gradient(from 0deg, #00f5ff, transparent 60%, #00f5ff);
+  animation: rotateRing 6s linear infinite;
+  z-index: 1;
+  filter: drop-shadow(0 0 12px #00f5ff66);
 }
 
+/* ===== Profile Image ===== */
 .profile-img {
-  width: 240px;
-  height: 240px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
   object-fit: cover;
-  transition: transform 0.6s ease, box-shadow 0.6s ease;
-  box-shadow: 0 0 30px rgba(0, 123, 255, 0.4);
   z-index: 2;
+  transition: 0.4s ease;
+  box-shadow: 0 0 25px rgba(0, 123, 255, 0.3);
+}
+.profile-img:hover {
+  transform: scale(1.05) rotateX(5deg) rotateY(10deg);
+  box-shadow: 0 0 40px rgba(0, 123, 255, 0.6);
 }
 
-.profile-img:hover {
-  transform: rotateY(15deg) rotateX(5deg) scale(1.05);
-  box-shadow: 0 0 40px rgba(0, 123, 255, 0.6);
+/* ===== Glass Reflection Overlay ===== */
+.glass-reflection {
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  top: -40%;
+  left: -40%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.15), transparent 70%);
+  transform: rotate(25deg);
+  animation: reflectionMove 4s infinite ease-in-out;
+  pointer-events: none;
+  z-index: 3;
 }
 
 /* ===== About Text Block ===== */
@@ -78,15 +104,14 @@
   animation: slideUp 1.4s ease 0.4s forwards;
   transform: translateY(40px);
   opacity: 0;
-  transition: 0.4s ease all;
   text-align: center;
 }
 
 .about-title {
   font-size: 42px;
-  color: #007bff;
+  color: var(--highlight);
   margin-bottom: 16px;
-  border-bottom: 2px solid #007bff;
+  border-bottom: 2px solid var(--highlight);
   display: inline-block;
 }
 
@@ -103,7 +128,7 @@
   padding: 14px 32px;
   font-size: 17px;
   font-weight: 600;
-  background: linear-gradient(135deg, #007bff, #00cfff);
+  background: linear-gradient(135deg, var(--highlight), #00cfff);
   color: white;
   text-decoration: none;
   border-radius: 14px;
@@ -111,41 +136,25 @@
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   display: inline-block;
 }
-
 .resume-btn:hover {
   transform: scale(1.07) translateY(-5px);
   box-shadow: 0 0 40px rgba(0, 123, 255, 0.5);
 }
 
 /* ===== Social Icons ===== */
+.social-icons {
+  margin-top: 24px;
+}
 .social-icons a {
   font-size: 28px;
   color: #444;
   transition: 0.4s ease;
   margin: 0 12px;
 }
-
 .social-icons a:hover {
   transform: scale(1.3) rotate(10deg);
-  color: #007bff;
-  text-shadow: 0 0 12px #007bff;
-}
-
-/* ===== CS Skills Icons ===== */
-.icon-box {
-  text-align: center;
-  padding: 18px 24px;
-  border-radius: 20px;
-  width: 110px;
-  background: rgba(0, 0, 0, 0.04);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 15px rgba(0, 123, 255, 0.12);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.icon-box:hover {
-  transform: rotateX(12deg) rotateY(8deg) scale(1.08);
-  box-shadow: 0 0 30px rgba(0, 123, 255, 0.2);
+  color: var(--highlight);
+  text-shadow: 0 0 12px var(--highlight);
 }
 
 /* ===== Animations ===== */
@@ -153,22 +162,23 @@
   from { opacity: 0; transform: translateY(70px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes slideUp {
   to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes floatImage {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-14px); }
 }
-
 @keyframes rotateRing {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+@keyframes reflectionMove {
+  0% { transform: rotate(25deg) translateX(-100%); }
+  100% { transform: rotate(25deg) translateX(100%); }
+}
 
-/* ===== Responsive Adjustments ===== */
+/* ===== Mobile Responsive ===== */
 @media (max-width: 768px) {
   .about-content {
     flex-direction: column;
@@ -180,14 +190,19 @@
     height: 200px;
   }
 
-  .profile-image-wrapper::before {
-    width: 210px;
-    height: 210px;
+  .glow-ring {
+    width: 220px;
+    height: 220px;
   }
 
   .profile-img {
-    width: 180px;
-    height: 180px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .glass-reflection {
+    width: 180%;
+    height: 180%;
   }
 
   .about-title {
@@ -201,10 +216,5 @@
   .resume-btn {
     font-size: 15px;
     padding: 12px 24px;
-  }
-
-  .icon-box {
-    width: 90px;
-    padding: 14px 18px;
   }
 }
