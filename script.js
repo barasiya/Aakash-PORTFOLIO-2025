@@ -69,17 +69,3 @@ document.querySelectorAll('.cert-card').forEach(card => {
     card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
   });
 });
-
-// =================== SCROLLREVEAL FOR PROJECT BOXES ===================
-document.addEventListener('DOMContentLoaded', () => {
-  if (typeof ScrollReveal !== "undefined") {
-    ScrollReveal().reveal('.project-box', {
-      origin: 'bottom',
-      distance: '30px',
-      duration: 1000,
-      easing: 'ease-in-out',
-      interval: 150,
-      reset: false
-    });
-  }
-});
