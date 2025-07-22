@@ -1,235 +1,22 @@
-body {
-  font-family: 'Barlow Condensed', sans-serif;
+/* ===== Reset & Base ===== */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Barlow Condensed', sans-serif;
   background-color: #f8f9fa;
   color: #222;
+  overflow-x: hidden;
 }
 
-.skills-section {
-  max-width: 1000px;
-  margin: 50px auto;
-  padding: 30px;
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.skills-title {
-  font-size: 2.2rem;
-  color: #333;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.skills-title span {
-  color: #6c63ff;
-}
-
-.skill-category {
-  font-size: 1.5rem;
-  margin-top: 25px;
-  color: #444;
-  border-left: 6px solid #6c63ff;
-  padding-left: 10px;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 15px;
-  margin-top: 15px;
-}
-
-.skill-box {
-  background-color: #e7e8ff;
-  color: #333;
-  padding: 12px;
-  border-radius: 12px;
-  text-align: center;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.skill-box:hover {
-  background-color: #6c63ff;
-  color: #fff;
-}
-/* ========================
-   Theme Toggle Custom Styling
-======================== */
-.theme-toggle {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  position: relative;
-}
-
-.theme-toggle label {
-  font-size: 1.2rem;
-  color: #6c5ce7;
-}
-
-.theme-toggle select {
-  padding: 0.4rem 0.8rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 6px;
-  background: linear-gradient(135deg, #8e44ad, #3498db);
-  color: white;
-  font-weight: bold;
-  outline: none;
-  appearance: none;
-  box-shadow: 0 0 8px rgba(142, 68, 173, 0.4);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-/* Arrow for dropdown (optional improvement) */
-.theme-toggle select::-ms-expand {
-  display: none;
-}
-
-.theme-toggle select:hover {
-  background: linear-gradient(135deg, #9b59b6, #2980b9);
-  box-shadow: 0 0 12px rgba(142, 68, 173, 0.6);
-}
-
-/* ========================
-   Dropdown Option Styling
-======================== */
-.theme-toggle select option {
-  color: black;
-  font-weight: 500;
-  background-color: #f0f0f0;
-}
-
-.theme-toggle select option:checked {
-  background-color: #dcdde1;
-  color: #2d3436;
-}
-
-
-
-
-
-
-/* Base Styles */
-.skills-section {
-  padding: 60px 20px;
-  background: var(--bg-color);
-  color: var(--text-color);
-}
-
-.skills-section .section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-}
-
-.skills-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-/* Column Styles */
-.skills-column {
-  flex: 1;
-  min-width: 300px;
-}
-
-.column-title {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-
-/* Progress Bars */
-.skill {
-  margin-bottom: 20px;
-}
-
-.progress-bar {
-  background: #ccc;
-  border-radius: 10px;
-  overflow: hidden;
-  height: 20px;
-  margin-top: 5px;
-}
-
-.progress {
-  height: 100%;
-  background: var(--primary-color);
-  color: #fff;
-  text-align: right;
-  padding-right: 10px;
-  line-height: 20px;
-  border-radius: 10px 0 0 10px;
-}
-
-/* Circular Skills */
-.circular-skill {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: space-between;
-}
-
-/* Circle Style */
-.circle {
-  --size: 120px;
-  width: var(--size);
-  height: var(--size);
-  border-radius: 50%;
-  background: conic-gradient(var(--primary-color) calc(var(--percent) * 1%), #ddd 0%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  font-weight: bold;
-  font-size: 0.9rem;
-}
-
-.circle::before {
-  content: attr(data-label);
-  position: absolute;
-  bottom: -25px;
-  text-align: center;
-  width: 100%;
-  font-size: 0.85rem;
-  color: var(--text-color);
-}
-
-/* ========== Responsive ========== */
-@media (max-width: 768px) {
-  .skills-container {
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .circular-skill {
-    justify-content: center;
-  }
-
-  .circle {
-    --size: 100px;
-  }
-
-  .section-title {
-    font-size: 2rem;
-  }
-}
-
-
-
-
-
-/* Basic header style */
+/* ===== Header Styles (optional context) ===== */
 header {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* logo left, menu right */
+  justify-content: space-between;
   padding: 10px 20px;
   background-color: #0b0c2a;
   color: #00f5ff;
@@ -238,101 +25,132 @@ header {
   z-index: 1000;
 }
 
-/* Logo style */
 .logo {
-  font-family: 'Barlow Condensed', sans-serif;
   font-weight: 700;
   font-size: 1.8rem;
   color: #00f5ff;
 }
 
-/* Nav menu desktop style */
-nav.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 25px;
+/* ===== Skills Section ===== */
+.skills-section {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 40px 20px;
+  background: linear-gradient(to right, #ffffff, #f1faff);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
 }
 
-/* Links */
-nav.nav-menu a {
-  color: #00f5ff;
-  text-decoration: none;
+.skills-title {
+  font-size: 36px;
+  color: #0c4a6e;
+  margin-bottom: 40px;
+  animation: fadeInDown 1s ease forwards;
+  font-weight: 700;
+}
+
+.skills-title span {
+  color: #00e6ff;
+}
+
+/* Skill Category */
+.skill-category {
+  font-size: 24px;
+  color: #0077b6;
+  margin: 40px 0 20px;
+  border-left: 6px solid #00c9ff;
+  padding-left: 10px;
+  text-align: left;
   font-weight: 600;
-  padding: 6px 10px;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
 }
 
-nav.nav-menu a:hover {
-  background-color: #00f5ff33;
-  color: #ffffff;
+/* Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+  perspective: 1000px;
 }
 
-/* Theme toggle inside menu on desktop */
-nav.nav-menu .theme-toggle {
-  margin-left: 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+/* Skill Box 3D + Light Glow */
+.skill-box {
+  position: relative;
+  padding: 16px 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #0c4a6e;
+  text-align: center;
+  backdrop-filter: blur(14px) saturate(180%);
+  box-shadow: 0 12px 25px rgba(0, 255, 255, 0.15);
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  overflow: hidden;
+  z-index: 0;
 }
 
-.theme-toggle label {
-  font-weight: 600;
+/* Hover Effect */
+.skill-box:hover {
+  transform: rotateX(6deg) rotateY(10deg) scale(1.06);
+  box-shadow: 0 25px 45px rgba(0, 255, 255, 0.25);
 }
 
-.theme-toggle select {
-  background-color: transparent;
-  border: none;
-  color: #00f5ff;
-  font-weight: 600;
-  font-family: inherit;
-  cursor: pointer;
-  outline: none;
+/* Click/Active Effect */
+.skill-box:active {
+  background-color: #e3fbff;
+  color: #0077b6;
+  transform: scale(0.98) rotateX(2deg) rotateY(3deg);
+  box-shadow: 0 20px 30px rgba(0, 255, 255, 0.3);
 }
 
-/* Hamburger menu icon hidden on desktop */
-.menu-icon {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
-  color: #00f5ff;
+/* Glow border on hover */
+.skill-box::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  background: linear-gradient(135deg, #00feba, #5bffea);
+  z-index: -1;
+  filter: blur(25px);
+  opacity: 0.08;
+  border-radius: 20px;
+  transition: opacity 0.4s ease;
 }
 
-/* Responsive for mobile */
+.skill-box:hover::before {
+  opacity: 0.25;
+}
+
+/* Fade-in animation */
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Responsive Mobile Fix ===== */
 @media (max-width: 768px) {
-  /* Hide nav menu initially */
-  nav.nav-menu {
-    display: none;
-    flex-direction: column;
-    background-color: #0b0c2a;
-    position: fixed;
-    top: 60px;
-    right: 10px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px #00f5ffaa;
-    width: 200px;
-    z-index: 2000;
+  .skills-title {
+    font-size: 28px;
+    margin-bottom: 30px;
   }
 
-  /* Show menu when active */
-  nav.nav-menu.active {
-    display: flex;
+  .skill-category {
+    font-size: 20px;
+    margin: 30px 0 15px;
   }
 
-  /* Show hamburger */
-  .menu-icon {
-    display: block;
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
   }
 
-  /* Links bigger touch targets on mobile */
-  nav.nav-menu a {
-    padding: 10px;
-    font-size: 18px;
-  }
-
-  /* Theme toggle inside menu */
-  nav.nav-menu .theme-toggle {
-    margin: 15px 0 0 0;
+  .skill-box {
+    font-size: 14px;
+    padding: 12px 0;
   }
 }
