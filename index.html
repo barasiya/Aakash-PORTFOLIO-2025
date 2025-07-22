@@ -412,12 +412,13 @@
 </footer>
 
 
-<!-- External JS -->
+<!-- External Script -->
 <script src="script.js"></script>
 
-<!-- Theme Script -->
+<!-- Theme Toggle Script -->
 <script>
   const themeSelect = document.getElementById('theme-select');
+
   function applyTheme(mode) {
     if (mode === 'auto') {
       const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -442,9 +443,7 @@
   });
 </script>
 
-
-
-
+<!-- Sticky Header on Scroll -->
 <script>
   window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
@@ -452,13 +451,13 @@
   });
 </script>
 
+<!-- Scroll Navigation Highlight -->
 <script>
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll(".nav-container nav a");
 
   window.addEventListener("scroll", () => {
     let current = "";
-
     sections.forEach((section) => {
       const sectionTop = section.offsetTop - 100;
       if (scrollY >= sectionTop) {
@@ -475,11 +474,7 @@
   });
 </script>
 
-
-
-
-
-
+<!-- Certification Cards Tilt Effect -->
 <script>
   document.querySelectorAll('.cert-card').forEach(card => {
     card.addEventListener('mousemove', e => {
@@ -492,10 +487,24 @@
       const rotateY = (x - centerX) / 20;
       card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
     });
+
     card.addEventListener('mouseleave', () => {
       card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
     });
   });
 </script>
 
-
+<!-- ScrollReveal for Project Cards -->
+<script src="https://unpkg.com/scrollreveal"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    ScrollReveal().reveal('.project-box', {
+      origin: 'bottom',
+      distance: '30px',
+      duration: 1000,
+      easing: 'ease-in-out',
+      interval: 150,
+      reset: false
+    });
+  });
+</script>

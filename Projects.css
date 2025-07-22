@@ -1,4 +1,4 @@
-/* ========== ROOT VARIABLES ========== */
+/* ======= ROOT VARIABLES ======= */
 :root {
   --bg-color: #0a192f;
   --card-bg: #112240;
@@ -11,63 +11,68 @@
   --font-family: 'Segoe UI', sans-serif;
 }
 
-/* ========== GLOBAL STYLES ========== */
+/* ======= GLOBAL ======= */
 body {
   margin: 0;
-  padding: 0;
   font-family: var(--font-family);
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
 }
 
-/* ========== SECTION STYLING ========== */
+/* ======= SECTION HEADER ======= */
 .section {
   padding: 60px 20px;
 }
 
 .container {
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .section-title {
   text-align: center;
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   margin-bottom: 50px;
   color: var(--highlight);
+  line-height: 1.3;
 }
 
-/* ========== PROJECTS GRID ========== */
+/* ======= PROJECTS CONTAINER ======= */
 .projects-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 40px;
-  flex-wrap: wrap;
 }
 
-/* ========== PROJECT CARD ========== */
+/* ======= PROJECT BOX ======= */
 .project-box {
   background: var(--card-bg);
   border-radius: var(--radius);
-  box-shadow: 0 0 15px var(--shadow-color);
   padding: 30px 25px;
+  max-width: 350px;
   width: 100%;
-  max-width: 340px;
-  transition: transform var(--transition), box-shadow var(--transition);
-  border: 1px solid transparent;
+  box-shadow: 0 0 15px var(--shadow-color);
+  transition: transform var(--transition), box-shadow var(--transition), border var(--transition);
+  border-top: 5px solid var(--highlight);
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  overflow: visible;
   position: relative;
-  overflow: hidden;
+  z-index: 1;
 }
 
 .project-box:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 25px var(--shadow-hover);
-  border-color: var(--highlight);
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px var(--shadow-hover);
+  border-left: 1px solid var(--highlight);
+  border-right: 1px solid var(--highlight);
 }
 
+/* ======= PROJECT TEXT ======= */
 .project-title {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin-bottom: 15px;
   color: var(--highlight);
 }
@@ -84,6 +89,7 @@ body {
   color: #9caec7;
 }
 
+/* ======= LINK STYLES ======= */
 .project-link {
   display: inline-block;
   padding: 10px 18px;
@@ -92,44 +98,59 @@ body {
   text-decoration: none;
   border-radius: 10px;
   font-weight: bold;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 .project-link:hover {
   background-color: #00e0ef;
-  color: #000;
 }
 
-/* ========== COLOR VARIANTS ========== */
+/* ======= COLOR VARIANTS ======= */
 .color1 {
-  border-top: 4px solid #00f5ff;
+  border-top-color: #00f5ff;
 }
 
 .color2 {
-  border-top: 4px solid #ff8c00;
+  border-top-color: #ff8c00;
 }
 
 .color3 {
-  border-top: 4px solid #ff4db8;
+  border-top-color: #ff4db8;
 }
 
-/* ========== RESPONSIVE DESIGN ========== */
+/* ======= RESPONSIVE: MOBILE VIEW ======= */
 @media (max-width: 768px) {
   .projects-container {
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    padding: 0 10px;
+    padding: 0 15px;
   }
 
   .project-box {
     width: 100%;
     max-width: 95%;
-    padding: 25px 20px;
+    padding: 25px 22px;
+    box-shadow: 0 0 20px var(--shadow-color);
   }
 
   .section-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 40px;
+  }
+
+  .project-title {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+  }
+
+  .project-desc,
+  .project-tech {
+    font-size: 0.95rem;
+  }
+
+  .project-link {
+    font-size: 0.95rem;
+    padding: 10px 16px;
   }
 }
