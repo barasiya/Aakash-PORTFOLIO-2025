@@ -50,12 +50,15 @@ header {
   z-index: 1000;
 }
 
+/* ===== Logo ===== */
 .logo {
   font-size: 2.5rem;
   font-weight: bold;
   color: var(--primary-color);
+  text-shadow: 0 2px 5px rgba(0, 245, 255, 0.3);
 }
 
+/* ===== Nav Container ===== */
 .nav-container {
   flex: 1;
   display: flex;
@@ -67,14 +70,17 @@ header {
   gap: 2rem;
 }
 
+/* ===== Nav Links with 3D Hover ===== */
 .nav-container nav a {
   font-size: 1.2rem;
   font-weight: 600;
   position: relative;
   color: #0059ff;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+  text-decoration: none;
 }
 
+/* Underline Effect */
 .nav-container nav a::after {
   content: '';
   position: absolute;
@@ -86,8 +92,24 @@ header {
   transition: width 0.3s ease-in-out;
 }
 
+.nav-container nav a:hover {
+  color: var(--primary-color);
+  transform: translateY(-4px) scale(1.05);
+  text-shadow: 0 4px 8px rgba(0, 89, 255, 0.2);
+}
+
 .nav-container nav a:hover::after {
   width: 100%;
+}
+
+/* ===== Mobile Hamburger Menu ===== */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--primary-color);
+  background: none;
+  border: none;
 }
 
 /* ===== Hero Section ===== */
@@ -336,14 +358,44 @@ footer {
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-  .hero-container {
+  header {
     flex-direction: column;
+    align-items: flex-start;
     text-align: center;
   }
 
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+    margin-right: 20px;
+  }
+
+  .nav-container {
+    width: 100%;
+    margin-top: 10px;
+  }
+
   .nav-container nav {
+    display: none;
     flex-direction: column;
+    align-items: flex-start;
     gap: 1rem;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #e6fdff, #ccfbff);
+    width: 100%;
+  }
+
+  .nav-container.active nav {
+    display: flex;
+  }
+
+  .social-left {
+    display: none;
+  }
+
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
   }
 
   .tilt-container {
@@ -356,11 +408,6 @@ footer {
     height: 280px;
     top: -20px;
     left: -20px;
-  }
-
-  header {
-    flex-direction: column;
-    text-align: center;
   }
 
   .share-container {
