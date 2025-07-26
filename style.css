@@ -50,13 +50,15 @@ header {
   z-index: 1000;
 }
 
-/* ===== Logo ===== */
 .logo {
   font-size: 2.5rem;
   font-weight: bold;
-  color: var(--primary-color);
-  text-shadow: 0 2px 5px rgba(0, 245, 255, 0.3);
+  color: #000000;
+ 
+  padding: 4px 10px;
+  border-radius: 6px;
 }
+
 
 /* ===== Nav Container ===== */
 .nav-container {
@@ -182,7 +184,7 @@ header {
   width: 340px;
   height: 340px;
   border-radius: 50%;
-  background: conic-gradient(#00f5ff, #ffc2d1, #b9fbc0, #00f5ff);
+  background: conic-gradient(#001617, #ffc2d1, #b9fbc0, #00f5ff);
   animation: rotateBorder 6s linear infinite;
   z-index: 1;
   top: -20px;
@@ -415,3 +417,22 @@ footer {
     right: 15px;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

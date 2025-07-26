@@ -1,220 +1,202 @@
-/* ===== Root Setup ===== */
-:root {
-  --primary-color: #00f5ff;
-  --bg-light: #f0faff;
-  --text-dark: #222;
-  --highlight: #007bff;
-  --font: 'Barlow Condensed', sans-serif;
-}
-
-/* ===== General Container ===== */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* ===== About Section Styling ===== */
+/* ===== About Section Styles (3D + Animated) ===== */
 .about-section {
-  padding: 100px 20px;
-  background: linear-gradient(to right, var(--bg-light), #ffffff);
-  font-family: var(--font);
-  color: var(--text-dark);
+  padding: 80px 20px;
+  background: #ffffff; /* White background */
+  color: #222;
+  font-family: 'Barlow Condensed', sans-serif;
+  perspective: 1200px; /* Enable 3D effects */
   overflow-x: hidden;
 }
 
-/* ===== Content Flex Wrapper ===== */
-.about-content {
+.about-container {
+  max-width: 1200px;
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  gap: 50px;
   align-items: center;
-  gap: 60px;
-  perspective: 1400px;
-  animation: fadeIn 1.3s ease-in-out forwards;
+  justify-content: center;
+  transform-style: preserve-3d;
+  animation: fadeInUp 1s ease-out;
 }
 
-/* ===== Profile Image Wrapper ===== */
-.profile-image-wrapper {
-  position: relative;
+.about-left {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(10deg);
+}
+
+.about-img {
   width: 260px;
   height: 260px;
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: radial-gradient(circle at center, #00f5ff22, transparent 70%);
-  box-shadow: 0 0 40px rgba(0, 245, 255, 0.3), inset 0 0 30px rgba(0, 123, 255, 0.2);
-  animation: floatImage 6s ease-in-out infinite;
-  overflow: hidden;
+  object-fit: cover;
+  border: 4px solid #00f5ff;
+  background: transparent;
+  box-shadow: 0 20px 40px rgba(0, 245, 255, 0.35),
+              inset 0 0 20px rgba(0, 245, 255, 0.2);
+  transition: transform 0.6s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.about-img:hover {
+  transform: scale(1.08) rotateY(5deg);
+  box-shadow: 0 30px 60px rgba(0, 245, 255, 0.5),
+              inset 0 0 30px rgba(0, 245, 255, 0.3);
+}
+
+.about-right {
+  flex: 2;
+  min-width: 300px;
+  animation: slideInRight 1.2s ease;
   transform-style: preserve-3d;
 }
 
-/* ===== Neon Glow Ring ===== */
-.glow-ring {
-  position: absolute;
-  width: 280px;
-  height: 280px;
-  border: 4px solid transparent;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, #00f5ff, transparent 60%, #00f5ff);
-  animation: rotateRing 6s linear infinite;
-  z-index: 1;
-  filter: drop-shadow(0 0 12px #00f5ff66);
+.section-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #00c8d6;
+  text-shadow: 0 2px 10px rgba(0, 200, 214, 0.3);
 }
 
-/* ===== Profile Image ===== */
-.profile-img {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  object-fit: cover;
-  z-index: 2;
-  transition: 0.4s ease;
-  box-shadow: 0 0 25px rgba(0, 123, 255, 0.3);
-}
-.profile-img:hover {
-  transform: scale(1.05) rotateX(5deg) rotateY(10deg);
-  box-shadow: 0 0 40px rgba(0, 123, 255, 0.6);
+.section-title span {
+  color: #222;
 }
 
-/* ===== Glass Reflection Overlay ===== */
-.glass-reflection {
-  position: absolute;
-  width: 140%;
-  height: 140%;
-  top: -40%;
-  left: -40%;
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0.15), transparent 70%);
-  transform: rotate(25deg);
-  animation: reflectionMove 4s infinite ease-in-out;
-  pointer-events: none;
-  z-index: 3;
-}
-
-/* ===== About Text Block ===== */
-.about-text-block {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(14px);
-  border-radius: 24px;
-  padding: 40px;
-  max-width: 700px;
-  box-shadow: 0 0 45px rgba(0, 123, 255, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  animation: slideUp 1.4s ease 0.4s forwards;
-  transform: translateY(40px);
-  opacity: 0;
-  text-align: center;
-}
-
-.about-title {
-  font-size: 42px;
-  color: var(--highlight);
-  margin-bottom: 16px;
-  border-bottom: 2px solid var(--highlight);
-  display: inline-block;
-}
-
-.about-text {
-  font-size: 18px;
-  line-height: 1.7;
+.about-intro {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  line-height: 1.6;
   color: #333;
-  letter-spacing: 0.3px;
 }
 
-/* ===== Resume Button ===== */
-.resume-btn {
-  margin-top: 24px;
-  padding: 14px 32px;
-  font-size: 17px;
-  font-weight: 600;
-  background: linear-gradient(135deg, var(--highlight), #00cfff);
-  color: white;
-  text-decoration: none;
-  border-radius: 14px;
-  box-shadow: 0 0 25px rgba(0, 123, 255, 0.3);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  display: inline-block;
-}
-.resume-btn:hover {
-  transform: scale(1.07) translateY(-5px);
-  box-shadow: 0 0 40px rgba(0, 123, 255, 0.5);
-}
-
-/* ===== Social Icons ===== */
-.social-icons {
-  margin-top: 24px;
-}
-.social-icons a {
-  font-size: 28px;
+.about-right p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 15px;
   color: #444;
-  transition: 0.4s ease;
-  margin: 0 12px;
-}
-.social-icons a:hover {
-  transform: scale(1.3) rotate(10deg);
-  color: var(--highlight);
-  text-shadow: 0 0 12px var(--highlight);
+  animation: fadeIn 1.2s ease;
 }
 
-/* ===== Animations ===== */
+.about-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.about-highlights li {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  color: #333;
+  transition: transform 0.3s ease;
+}
+
+.about-highlights li:hover {
+  transform: translateX(5px);
+  color: #00c8d6;
+}
+
+.about-highlights i {
+  color: #00c8d6;
+  margin-right: 10px;
+}
+
+.about-buttons {
+  margin-top: 25px;
+}
+
+.about-buttons .btn {
+  display: inline-block;
+  background: linear-gradient(145deg, #00c8d6, #00f5ff);
+  color: #fff;
+  padding: 12px 26px;
+  margin-right: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 30px;
+  box-shadow: 0 10px 20px rgba(0, 200, 214, 0.3);
+  transition: all 0.4s ease;
+  transform: translateZ(0);
+}
+
+.about-buttons .btn:hover {
+  background: #00b8cc;
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 200, 214, 0.5);
+}
+
+.about-social {
+  margin-top: 35px;
+}
+
+.about-social a {
+  display: inline-block;
+  font-size: 1.7rem;
+  color: #333;
+  margin-right: 20px;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.about-social a:hover {
+  color: #00c8d6;
+  transform: scale(1.2) rotateZ(5deg);
+}
+
+/* ===== Keyframes for Animations ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(70px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes slideUp {
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes floatImage {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
-}
-@keyframes rotateRing {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-@keyframes reflectionMove {
-  0% { transform: rotate(25deg) translateX(-100%); }
-  100% { transform: rotate(25deg) translateX(100%); }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-/* ===== Mobile Responsive ===== */
+/* ===== Responsive Fixes ===== */
 @media (max-width: 768px) {
-  .about-content {
+  .about-container {
     flex-direction: column;
-    gap: 40px;
+    text-align: center;
   }
 
-  .profile-image-wrapper {
-    width: 240px;
-    height: 240px;
+  .about-left {
+    transform: none;
   }
 
-  .glow-ring {
-    width: 260px;
-    height: 260px;
+  .about-buttons .btn {
+    margin-bottom: 12px;
   }
 
-  .profile-img {
-    width: 200px;
-    height: 200px;
-  }
-
-  .glass-reflection {
-    width: 200%;
-    height: 200%;
-  }
-
-  .about-title {
-    font-size: 30px;
-  }
-
-  .about-text {
-    font-size: 16px;
-  }
-
-  .resume-btn {
-    font-size: 15px;
-    padding: 12px 24px;
+  .about-social a {
+    margin-right: 15px;
   }
 }
