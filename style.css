@@ -54,11 +54,10 @@ header {
   font-size: 2.5rem;
   font-weight: bold;
   color: #000000;
- 
+  background-color: #ffffff;
   padding: 4px 10px;
   border-radius: 6px;
 }
-
 
 /* ===== Nav Container ===== */
 .nav-container {
@@ -72,7 +71,6 @@ header {
   gap: 2rem;
 }
 
-/* ===== Nav Links with 3D Hover ===== */
 .nav-container nav a {
   font-size: 1.2rem;
   font-weight: 600;
@@ -82,7 +80,6 @@ header {
   text-decoration: none;
 }
 
-/* Underline Effect */
 .nav-container nav a::after {
   content: '';
   position: absolute;
@@ -235,7 +232,7 @@ header {
   animation: lightSweep 0.7s ease-in-out forwards;
 }
 
-/* ===== Floating Share Button (3D Light Design) ===== */
+/* ===== Floating Share Button ===== */
 .share-container {
   position: fixed;
   bottom: 20px;
@@ -308,14 +305,8 @@ header {
 }
 
 @keyframes slideFadeIn {
-  0% {
-    transform: translateX(-50px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
+  0% { transform: translateX(-50px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
 }
 
 @keyframes lightSweep {
@@ -343,96 +334,71 @@ header {
 }
 
 @keyframes slideUp {
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  to { transform: translateY(0); opacity: 1; }
 }
 
-/* ===== Footer ===== */
-footer {
+/* ===== Footer Base Styles ===== */
+.site-footer {
+  background-color: #02c8e7;
+  padding: 40px 20px;
   text-align: center;
-  padding: 20px 0;
-  background-color: #f5f5f5;
-  color: #333;
-  font-size: 16px;
+  font-family: var(--font-family);
+  color: #000;
 }
 
-/* ===== Responsive ===== */
+/* ===== Social Media Icons ===== */
+.footer-social {
+  margin-bottom: 25px;
+}
+
+.footer-social a {
+  margin: 0 10px;
+  font-size: 24px;
+  color: #000;
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-social a:hover {
+  transform: scale(1.2);
+  color: #ffffff;
+}
+
+/* ===== Footer Navigation Links ===== */
+.footer-nav {
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.footer-nav a {
+  margin: 8px 12px;
+  color: #000;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.footer-nav a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+/* ===== Footer Credit Text ===== */
+.footer-credit {
+  font-size: 20px;
+  margin-top: 10px;
+  color: #000;
+}
+
+/* ===== Responsive Design for Footer ===== */
 @media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: center;
+  .footer-social a,
+  .footer-nav a {
+    font-size: 20px;
+    margin: 10px 8px;
   }
 
-  .menu-toggle {
-    display: block;
-    margin-left: auto;
-    margin-right: 20px;
-  }
-
-  .nav-container {
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .nav-container nav {
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 10px 20px;
-    background: linear-gradient(to right, #e6fdff, #ccfbff);
-    width: 100%;
-  }
-
-  .nav-container.active nav {
-    display: flex;
-  }
-
-  .social-left {
-    display: none;
-  }
-
-  .hero-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .tilt-container {
-    width: 240px;
-    height: 240px;
-  }
-
-  .tilt-container::before {
-    width: 280px;
-    height: 280px;
-    top: -20px;
-    left: -20px;
-  }
-
-  .share-container {
-    bottom: 15px;
-    right: 15px;
+  .footer-credit {
+    font-size: 18px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
