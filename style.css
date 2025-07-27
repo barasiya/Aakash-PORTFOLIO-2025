@@ -252,27 +252,10 @@ header {
   to { transform: translateY(0); opacity: 1; }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ===== Floating Social Icons (Left) with 3D Hover & Glow ===== */
 .social-left {
   position: fixed;
-  top:10%;
+  top: 10%;
   left: 20px;
   transform: translateY(-50%);
   display: flex;
@@ -338,22 +321,80 @@ header {
   box-shadow: 0 0 20px rgba(0, 245, 255, 0.8), 0 10px 24px rgba(0, 123, 255, 0.5);
 }
 
-
-
-
-
+/* ===== Mobile Responsive Fixes ===== */
 @media (max-width: 768px) {
-  .social-left {
+
+  /* Show hamburger */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Hide nav by default */
+  .nav-container {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: var(--bg-color);
     display: none;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid #ccc;
+    z-index: 9999;
+  }
+
+  /* Show nav when active */
+  .nav-container.active {
+    display: flex;
+  }
+
+  .nav-container nav {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .nav-container nav a {
+    font-size: 1.4rem;
+    padding: 12px 0;
+  }
+
+  /* Adjust social icons: show at bottom centered */
+  .social-left {
+    display: flex;
+    top: auto;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    gap: 12px;
+    opacity: 1;
+    animation: none;
+    position: fixed;
+    z-index: 1000;
+  }
+
+  .social-left a {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
   }
 }
 
+/* Optional: further smaller screen tweaks */
+@media (max-width: 400px) {
+  .hero-text h2 {
+    font-size: 2.2rem;
+  }
 
+  .nav-container nav a {
+    font-size: 1.2rem;
+  }
 
-
-
-
-
-
-
-
+  .social-left a {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+}
