@@ -1,4 +1,4 @@
-/* ==== SHARE BUTTON DESIGN ==== */
+/* ========== SHARE BUTTON STYLES ========== */
 .share-container {
   position: fixed;
   bottom: 100px;
@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  font-family: 'Barlow Condensed', sans-serif;
 }
 
 .share-btn {
@@ -15,46 +15,37 @@
   height: 55px;
   background: linear-gradient(135deg, #00c8d6, #00f5ff);
   color: #fff;
-  font-size: 1.5rem;
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
   cursor: pointer;
-  box-shadow: 0 8px 15px rgba(0, 245, 255, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 245, 255, 0.5);
   transition: transform 0.3s ease;
 }
 
 .share-btn:hover {
-  transform: rotate(90deg);
+  transform: scale(1.1);
 }
 
 .social-icons {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
   display: none;
   flex-direction: column;
   gap: 10px;
-  animation: fadeInUp 0.5s ease forwards;
-}
-
-#toggle-share:checked ~ .social-icons {
-  display: flex;
-}
-
-.social-icons li {
-  list-style: none;
 }
 
 .social-icons li a {
-  width: 45px;
-  height: 45px;
-  background: #ffffff;
+  background: #fff;
   color: #00c8d6;
-  font-size: 1.2rem;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 6px 12px rgba(0, 245, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 245, 255, 0.3);
   transition: all 0.3s ease;
 }
 
@@ -64,39 +55,58 @@
   transform: scale(1.1);
 }
 
-/* ==== FOOTER STYLING ==== */
+/* Toggle icons when checkbox is checked */
+#toggle-share:checked ~ .social-icons {
+  display: flex;
+}
+
+/* ========== FOOTER STYLES ========== */
 .site-footer {
-  background: #0f1a2f;
-  color: #fff;
-  padding: 40px 20px;
+  background: #0d0d0d;
+  color: #ffffffcc;
+  padding: 40px 20px 20px;
   text-align: center;
   font-family: 'Barlow Condensed', sans-serif;
+  position: relative;
+  z-index: 1;
 }
 
 .footer-social {
-  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
 }
 
 .footer-social a {
-  color: #fff;
-  margin: 0 8px;
-  font-size: 1.3rem;
-  transition: color 0.3s;
+  background: #1a1a1a;
+  color: #00f5ff;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  transition: 0.3s;
 }
 
 .footer-social a:hover {
-  color: #00f5ff;
+  background: #00f5ff;
+  color: #000;
 }
 
 .footer-nav {
-  margin: 15px 0;
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
 }
 
 .footer-nav a {
-  margin: 0 10px;
-  color: #ddd;
+  color: #ffffffcc;
   text-decoration: none;
-  font-weight: 500;
+  font-size: 16px;
   transition: color 0.3s;
 }
 
@@ -105,19 +115,47 @@
 }
 
 .footer-credit {
-  margin-top: 10px;
-  font-size: 0.95rem;
-  color: #bbb;
+  font-size: 14px;
+  color: #888;
+  margin-top: 15px;
 }
 
-/* ==== ANIMATION ==== */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20%);
+/* ========== MEDIA QUERIES ========== */
+@media (max-width: 768px) {
+  .share-container {
+    bottom: 80px;
+    right: 15px;
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+
+  .share-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+
+  .social-icons li a {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+
+  .footer-social a {
+    width: 36px;
+    height: 36px;
+  }
+
+  .footer-nav {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-credit {
+    font-size: 12px;
+  }
+
+  .footer-social {
+    gap: 10px;
   }
 }
