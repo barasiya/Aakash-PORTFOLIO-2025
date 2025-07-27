@@ -1,6 +1,5 @@
 // script.js
 
-// Wait until DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
   // ===== Theme Toggle =====
   const themeToggle = document.getElementById("theme-toggle");
@@ -105,8 +104,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ===== Hero Tilt Effect =====
-  document.querySelectorAll(".tilt").forEach(el => {
+  // ===== Hero Tilt Effect (3D Image Movement) =====
+  document.querySelectorAll(".tilt-container").forEach(el => {
     el.addEventListener("mousemove", e => {
       const { width, height, left, top } = el.getBoundingClientRect();
       const x = e.clientX - left;
@@ -126,7 +125,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const thankYou = document.getElementById("local-thank-you");
 
   if (form && thankYou) {
-    form.addEventListener("submit", function () {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // Prevent actual submission if it's client-side only
       setTimeout(() => {
         thankYou.style.display = "block";
         form.reset();
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===== Animate on Scroll =====
+  // ===== Animate on Scroll (Fade-in Elements) =====
   const fadeElems = document.querySelectorAll('.fade-in');
   const appearOnScroll = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
