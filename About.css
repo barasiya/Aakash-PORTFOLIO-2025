@@ -1,4 +1,4 @@
-/* ===== Base Reset ===== */
+/* ===== Base Reset (Already Present in Global) ===== */
 body {
   margin: 0;
   padding: 0;
@@ -10,12 +10,13 @@ body {
 /* ===== About Section ===== */
 .about-section {
   padding: 80px 20px;
-  background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
+  background: radial-gradient(ellipse at top, #041d25 0%, #0b3d4e 100%);
   color: #fff;
   position: relative;
   z-index: 1;
   perspective: 1200px;
 }
+
 .about-section::after {
   content: '';
   position: absolute;
@@ -24,6 +25,18 @@ body {
   background: radial-gradient(ellipse at center, rgba(0, 245, 255, 0.05), transparent 80%);
   z-index: 0;
   pointer-events: none;
+}
+
+/* ===== Float Glow Animation (Same as Contact) ===== */
+@keyframes floatGlow {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 0 25px rgba(0, 245, 255, 0.3);
+  }
+  50% {
+    transform: translateY(-12px);
+    box-shadow: 0 0 45px rgba(0, 245, 255, 0.6);
+  }
 }
 
 /* Reveal Animation */
@@ -50,6 +63,13 @@ body {
   transition: transform 0.4s ease;
   position: relative;
   z-index: 2;
+  backdrop-filter: blur(16px);
+  background: rgba(11, 43, 53, 0.15);
+  border: 1px solid rgba(0, 245, 255, 0.12);
+  box-shadow:
+    0 10px 30px rgba(0, 245, 255, 0.12),
+    inset 0 0 30px rgba(0, 245, 255, 0.05);
+  animation: floatGlow 6s ease-in-out infinite;
 }
 .about-container:hover {
   transform: rotateX(3deg) rotateY(-3deg);

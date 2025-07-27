@@ -2,7 +2,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
-  overflow-x: hidden; /* Prevent horizontal scroll on root */
+  overflow-x: hidden;
 }
 
 /* ===== Variables ===== */
@@ -25,7 +25,7 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
-  overflow-x: hidden; /* Prevent horizontal scroll on body */
+  overflow-x: hidden;
 }
 a {
   text-decoration: none;
@@ -364,17 +364,43 @@ header {
     flex-wrap: wrap;
     justify-content: center;
   }
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  .hero-text h2 {
+    font-size: 2.2rem;
+  }
+  .hero-text p {
+    font-size: 1rem;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
   .hero-buttons .btn {
     width: 100%;
     text-align: center;
   }
   .hero-img {
     margin-top: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .tilt-container {
+    max-width: 220px;
+    margin: 0 auto;
   }
 }
 @media (max-width: 400px) {
   .hero-text h2 {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   .nav-container nav a {
     font-size: 1.2rem;
