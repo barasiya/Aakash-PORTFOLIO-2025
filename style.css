@@ -133,14 +133,52 @@ header {
   flex: 1;
 }
 
+.hero-text h1 {
+  font-size: 2.6rem;
+  line-height: 1.2;
+}
+
 .hero-text h2 {
   font-size: 3rem;
   font-weight: 700;
   margin: 10px 0;
 }
 
+.hero-text p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
 .hero-text .highlight {
   color: var(--primary-color);
+}
+
+.hero-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-buttons .btn {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: #000;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.hero-buttons .btn.secondary {
+  background-color: #ffffff;
+  color: #000;
+  border: 2px solid var(--primary-color);
+}
+
+.hero-buttons .btn:hover {
+  background-color: #0ff;
+  color: #000;
 }
 
 .programmer-tag {
@@ -362,6 +400,32 @@ header {
 
   .footer-credit {
     font-size: 0.8rem;
+  }
+
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-img {
+    margin-top: 2rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    text-align: center;
   }
 }
 

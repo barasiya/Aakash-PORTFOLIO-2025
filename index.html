@@ -61,15 +61,13 @@
 
 
 
-  <section id="home" class="hero">
-  <canvas id="hero-canvas"></canvas>
+  <section id="home" class="hero relative overflow-hidden min-h-screen flex flex-col md:flex-row items-center justify-center text-center md:text-left px-6 bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364] text-white">
 
-  <section id="home" class="relative hero overflow-hidden min-h-screen flex items-center justify-center text-center px-6 bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364] text-white">
-  <!-- Background Canvas (for 3D stars or animation) -->
+  <!-- Background Canvas -->
   <canvas id="hero-canvas" class="absolute top-0 left-0 w-full h-full z-0"></canvas>
 
-  <!-- Hero Content -->
-  <div class="z-10 max-w-3xl mx-auto animate-fade-in-up">
+  <!-- Hero Text -->
+  <div class="hero-text z-10 max-w-3xl mx-auto md:mr-10 animate-fade-in-up">
     <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 leading-tight drop-shadow-2xl">
       <span class="block text-[var(--primary-color)] animate-glow">Hi 👋, I'm</span>
       <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500">
@@ -77,19 +75,18 @@
       </span>
     </h1>
 
-<h3 class="text-xl sm:text-2xl md:text-3xl mb-4 font-medium text-gray-200 tracking-wide">
-  <span class="fade-in delay-1">Frontend Developer</span>
-  <span class="fade-in delay-2 text-cyan-300 ml-2">Java Programmer</span>
-</h3>
-
+    <h3 class="text-xl sm:text-2xl md:text-3xl mb-4 font-medium text-gray-200 tracking-wide">
+      <span class="fade-in delay-1">Frontend Developer</span>
+      <span class="fade-in delay-2 text-cyan-300 ml-2">Java Programmer</span>
+    </h3>
 
     <p class="text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed">
       Crafting responsive web apps with clean UI & quality code.<br />
       B.Tech CS @ SISTec | Passionate about <span class="text-cyan-400">React</span>, <span class="text-cyan-400">DBMS</span>, and <span class="text-cyan-400">Java</span>.
     </p>
 
-    <div class="flex flex-wrap gap-4 justify-center">
-      <a href="/resume.pdf" download class="px-6 py-3 rounded-full font-semibold bg-cyan-500 hover:bg-cyan-600 text-white shadow-lg transform hover:-translate-y-1 hover:shadow-cyan-500/50 transition-all duration-300">
+    <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+      <a href="resume.pdf" download class="px-6 py-3 rounded-full font-semibold bg-cyan-500 hover:bg-cyan-600 text-white shadow-lg transform hover:-translate-y-1 hover:shadow-cyan-500/50 transition-all duration-300">
         ⬇️ Download Resume
       </a>
       <a href="#contact" class="px-6 py-3 rounded-full font-semibold border-2 border-cyan-400 text-cyan-300 hover:bg-cyan-500 hover:text-white shadow-md transform hover:-translate-y-1 transition-all duration-300">
@@ -97,16 +94,20 @@
       </a>
     </div>
   </div>
-</section>
 
-  
-
-  <!-- Right: Image -->
-  <div class="hero-img fade-in delay-2">
-    <div class="tilt-container">
-      <img src="aakash.jpg" alt="Aakash Barasiya" />
+  <!-- Hero Image -->
+  <div class="hero-img z-10 mt-10 md:mt-0 fade-in delay-2">
+    <div class="tilt-container max-w-xs md:max-w-sm mx-auto md:ml-10">
+      <img src="aakash.jpg" alt="Aakash Barasiya" class="rounded-2xl shadow-2xl hover:shadow-cyan-400/40 transition duration-500" />
     </div>
   </div>
+
+</section>
+
+
+
+
+
 
 <!-- Floating Social Links (Left) -->
 <div class="social-left">
