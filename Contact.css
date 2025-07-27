@@ -1,3 +1,8 @@
+/* ===== Global Fix ===== */
+body {
+  overflow-x: hidden;
+}
+
 /* ===== Contact Section Styling ===== */
 #contact {
   padding: 80px 20px;

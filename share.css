@@ -1,3 +1,8 @@
+/* ==== Global Fix to Prevent Horizontal Scroll ==== */
+body {
+  overflow-x: hidden;
+}
+
 /* ==== Share Container Base ==== */
 .share-container {
   position: fixed;

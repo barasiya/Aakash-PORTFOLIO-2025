@@ -1,3 +1,8 @@
+/* ===== Global Fix ===== */
+body {
+  overflow-x: hidden;
+}
+
 /* ===== Skills Section Base ===== */
 .skills-section {
   padding: 80px 20px;
