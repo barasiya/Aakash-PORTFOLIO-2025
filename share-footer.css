@@ -1,4 +1,4 @@
-/* ==== SHARE BUTTON DESIGN ==== */
+/* ==== SHARE BUTTON BASE ==== */
 .share-container {
   position: fixed;
   bottom: 100px;
@@ -7,97 +7,102 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  font-family: 'Barlow Condensed', sans-serif;
 }
 
 .share-btn {
   width: 55px;
   height: 55px;
   background: linear-gradient(135deg, #00c8d6, #00f5ff);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
   color: #fff;
-  font-size: 1.5rem;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
-  box-shadow: 0 8px 15px rgba(0, 245, 255, 0.3);
-  transition: transform 0.3s ease;
-}
-
-.share-btn:hover {
-  transform: rotate(90deg);
-}
-
-.social-icons {
-  display: none;
-  flex-direction: column;
-  gap: 10px;
-  animation: fadeInUp 0.5s ease forwards;
-}
-
-#toggle-share:checked ~ .social-icons {
-  display: flex;
-}
-
-.social-icons li {
-  list-style: none;
-}
-
-.social-icons li a {
-  width: 45px;
-  height: 45px;
-  background: #ffffff;
-  color: #00c8d6;
-  font-size: 1.2rem;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 6px 12px rgba(0, 245, 255, 0.15);
+  box-shadow: 0 5px 15px rgba(0, 245, 255, 0.5);
   transition: all 0.3s ease;
 }
 
+.share-btn:hover {
+  transform: scale(1.1);
+}
+
+.social-icons {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+}
+
+#toggle-share:checked ~ .social-icons {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.social-icons li a {
+  background-color: #ffffff;
+  color: #000;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: all 0.3s;
+}
+
 .social-icons li a:hover {
-  background: #00f5ff;
+  background: var(--primary-color, #00f5ff);
   color: #fff;
   transform: scale(1.1);
 }
 
 /* ==== FOOTER STYLING ==== */
 .site-footer {
-  background: #0f1a2f;
+  background-color: #0b0c1a;
   color: #fff;
-  padding: 40px 20px;
   text-align: center;
+  padding: 40px 20px;
   font-family: 'Barlow Condensed', sans-serif;
 }
 
 .footer-social {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .footer-social a {
-  color: #fff;
-  margin: 0 8px;
-  font-size: 1.3rem;
-  transition: color 0.3s;
+  color: #00f5ff;
+  font-size: 20px;
+  transition: 0.3s;
 }
 
 .footer-social a:hover {
-  color: #00f5ff;
+  color: #ffffff;
+  transform: scale(1.2);
 }
 
 .footer-nav {
-  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 15px;
 }
 
 .footer-nav a {
-  margin: 0 10px;
-  color: #ddd;
+  color: #ccc;
+  font-size: 16px;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
+  transition: 0.3s;
 }
 
 .footer-nav a:hover {
@@ -105,19 +110,38 @@
 }
 
 .footer-credit {
+  font-size: 14px;
+  color: #888;
   margin-top: 10px;
-  font-size: 0.95rem;
-  color: #bbb;
 }
 
-/* ==== ANIMATION ==== */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20%);
+/* ==== RESPONSIVE FOR MOBILE ==== */
+@media (max-width: 600px) {
+  .share-container {
+    bottom: 80px;
+    right: 10px;
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+
+  .share-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .social-icons li a {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .footer-nav {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-social {
+    gap: 12px;
+  }
+
+  .footer-credit {
+    font-size: 12px;
   }
 }
