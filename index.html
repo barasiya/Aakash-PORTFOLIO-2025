@@ -445,13 +445,12 @@
 
 
 
-
-<!-- Contact Section -->
+<!-- ===== Contact Section ===== -->
 <section id="contact">
-  <div class="contact-container">
+  <div class="contact-container" style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center;">
 
     <!-- Contact Info -->
-    <div class="contact-info">
+    <div class="contact-info" style="flex: 1; min-width: 280px;">
       <h2>Contact Me</h2>
       <p>I would love to hear from you – whether it's feedback, opportunities or questions.</p>
       <p>📍 India</p>
@@ -460,14 +459,15 @@
     </div>
 
     <!-- Contact Form -->
-    <div class="contact-form">
+    <div class="contact-form" style="flex: 1; min-width: 320px;">
       <h2>Leave A Message</h2>
 
       <form id="custom-contact-form" action="https://formsubmit.co/aakashbarasiya2001@gmail.com" method="POST" target="invisible_iframe">
+        <!-- FormSubmit Hidden Fields -->
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="">
 
+        <!-- Form Fields -->
         <input type="text" name="First Name" placeholder="First Name" required>
         <input type="text" name="Last Name" placeholder="Last Name (optional)">
         <input type="email" name="Email" placeholder="Email" required>
@@ -477,17 +477,22 @@
         <button type="submit">Send Message</button>
       </form>
 
-      <div id="local-thank-you">✅ Thank you! Your message has been sent.</div>
+      <!-- Local Thank You Message -->
+      <div id="local-thank-you" style="display: none; color: limegreen; margin-top: 15px;">
+        ✅ Thank you! Your message has been sent.
+      </div>
 
       <!-- Hidden iframe -->
-      <iframe name="invisible_iframe" style="display:none;"></iframe>
+      <iframe name="invisible_iframe" style="display: none;"></iframe>
     </div>
 
   </div>
 </section>
 
-<!-- Link CSS and JS -->
+<!-- Link JavaScript File -->
 <script src="script.js" defer></script>
+
+
 
 
 

@@ -125,8 +125,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const thankYou = document.getElementById("local-thank-you");
 
   if (form && thankYou) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault(); // Prevent actual submission if it's client-side only
+    form.addEventListener("submit", function () {
+      // This delay ensures FormSubmit gets time to process before we show message
       setTimeout(() => {
         thankYou.style.display = "block";
         form.reset();
@@ -155,4 +155,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }, { threshold: 0.1 });
 
   fadeElems.forEach(el => appearOnScroll.observe(el));
+
+  // ===== Scroll Reveal for .reveal Elements =====
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('.reveal').forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      const winHeight = window.innerHeight;
+      if (top < winHeight - 100) {
+        el.classList.add('visible');
+      }
+    });
+  });
 });
