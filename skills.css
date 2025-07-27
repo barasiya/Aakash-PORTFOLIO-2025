@@ -9,11 +9,11 @@ body {
   background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
   color: #fff;
   font-family: 'Barlow Condensed', sans-serif;
+  text-align: center;
 }
 
 /* ===== Titles ===== */
 .section-title {
-  text-align: center;
   font-size: 3rem;
   margin-bottom: 50px;
   color: #00f5ff;
@@ -25,7 +25,6 @@ body {
   font-size: 1.8rem;
   margin-top: 40px;
   margin-bottom: 20px;
-  text-align: center;
 }
 
 /* ===== 3D Skill Cards ===== */
@@ -58,7 +57,7 @@ body {
 }
 .skill-card p {
   font-weight: bold;
-  color: #170101cc;
+  color: #ffffffdd;
 }
 
 /* ===== Skill Bars ===== */
@@ -72,6 +71,8 @@ body {
 .skills-column {
   flex: 1;
   min-width: 300px;
+  max-width: 500px;
+  margin: 0 auto;
   padding: 20px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid #00f5ff11;
@@ -80,7 +81,6 @@ body {
   backdrop-filter: blur(6px);
 }
 .column-title {
-  text-align: center;
   font-size: 2rem;
   color: #00f5ff;
   margin-bottom: 30px;
@@ -168,49 +168,42 @@ body {
     flex-direction: column;
     align-items: center;
   }
+
   .skills-grid {
     justify-content: center;
   }
 }
 
 @media (max-width: 768px) {
-  .skills-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
   .skills-column {
-    width: 90%;
-    max-width: 400px;
+    width: 100%;
+    max-width: 90%;
     margin-bottom: 30px;
   }
 }
 
 @media (max-width: 600px) {
   .skills-section {
-    padding: 60px 12px;
+    padding: 50px 10px;
   }
 
   .section-title {
-    font-size: 2.2rem;
-    text-align: center;
+    font-size: 2rem;
   }
 
   .skills-subtitle,
   .skill-category {
     font-size: 1.3rem;
-    text-align: center;
   }
 
   .skills-grid {
-    gap: 20px;
+    gap: 16px;
     justify-content: center;
   }
 
   .skill-card {
-    width: 80px;
-    padding: 12px;
-    border-radius: 12px;
+    width: 85px;
+    padding: 10px;
   }
 
   .skill-card img {
@@ -219,11 +212,18 @@ body {
   }
 
   .skill-card p {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+  }
+
+  .skills-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
   }
 
   .circular-skill {
-    gap: 20px;
+    gap: 16px;
+    margin-top: 40px;
   }
 
   .circle {
@@ -233,6 +233,6 @@ body {
 
   .circle::after {
     font-size: 0.75rem;
-    bottom: -20px;
+    bottom: -18px;
   }
 }
