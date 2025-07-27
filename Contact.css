@@ -1,178 +1,140 @@
-/* ===== Contact Section ===== */
-.contact-section {
-  padding: 100px 20px;
-  background: linear-gradient(to bottom, #081c24, #0f3b4d);
-  color: #fff;
+/* ===== Contact Section Styling ===== */
+#contact {
+  padding: 80px 20px;
+  background: radial-gradient(ellipse at top, #041d25 0%, #0b3d4e 100%);
+  color: white;
   font-family: 'Barlow Condensed', sans-serif;
-  perspective: 1200px;
-  overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
-/* ===== Contact Container ===== */
+/* Floating glow animation */
+@keyframes floatGlow {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 0 25px rgba(0, 245, 255, 0.3);
+  }
+  50% {
+    transform: translateY(-10px);
+    box-shadow: 0 0 40px rgba(0, 245, 255, 0.6);
+  }
+}
+
 .contact-container {
-  max-width: 1200px;
-  margin: auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 40px;
-  justify-content: space-between;
-  align-items: stretch;
-  transform-style: preserve-3d;
-  animation: fadeInUp 1s ease-out both;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
-/* ===== Contact Info Box ===== */
-.contact-info {
-  flex: 1 1 40%;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  padding: 30px 25px;
-  box-shadow: 0 25px 50px rgba(0, 245, 255, 0.12);
-  backdrop-filter: blur(16px);
-  transform: rotateY(-6deg) translateZ(15px);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-
-.contact-info:hover {
-  transform: rotateY(0deg) scale(1.03);
-  box-shadow: 0 30px 70px rgba(0, 245, 255, 0.25);
-}
-
-.contact-info h2 {
-  font-size: 2.6rem;
-  margin-bottom: 18px;
-  color: #00f5ff;
-}
-
-.contact-info p {
-  font-size: 1.1rem;
-  margin: 10px 0;
-  line-height: 1.7;
-}
-
-.contact-info i {
-  margin-right: 10px;
-  color: #00f5ff;
-}
-
-.contact-info a {
-  color: #ffffff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.contact-info a:hover {
-  color: #00f5ff;
-}
-
-/* ===== Contact Form Box ===== */
+.contact-info,
 .contact-form {
-  flex: 1 1 55%;
-  background: rgba(255, 255, 255, 0.08);
-  padding: 40px 30px;
+  flex: 1;
+  min-width: 320px;
+  backdrop-filter: blur(18px);
+  background: rgba(11, 43, 53, 0.35);
   border-radius: 20px;
-  box-shadow: 0 25px 50px rgba(0, 245, 255, 0.15);
-  backdrop-filter: blur(16px);
-  transform: rotateY(6deg) translateZ(15px);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  padding: 35px;
+  box-shadow: 0 8px 20px rgba(0, 245, 255, 0.2),
+              inset 0 0 20px rgba(0, 245, 255, 0.1);
+  animation: floatGlow 6s ease-in-out infinite;
+  transition: transform 0.3s ease;
 }
 
+.contact-info:hover,
 .contact-form:hover {
-  transform: rotateY(0deg) scale(1.03);
-  box-shadow: 0 30px 70px rgba(0, 245, 255, 0.3);
+  transform: translateY(-6px) scale(1.02);
 }
 
+.contact-info h2,
 .contact-form h2 {
-  font-size: 2.4rem;
-  margin-bottom: 20px;
   color: #00f5ff;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #00f5ff;
+  padding-bottom: 8px;
+  letter-spacing: 1px;
 }
 
-/* ===== Form Elements ===== */
+/* Contact Info Styling */
+.contact-info p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Inputs */
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 14px 18px;
-  margin: 12px 0;
-  border: 2px solid #00f5ff;
-  border-radius: 12px;
-  background-color: rgba(255, 255, 255, 0.06);
-  color: #fff;
+  padding: 12px 15px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.07);
+  color: white;
   font-size: 1rem;
-  transition: all 0.3s ease;
-  box-shadow: inset 0 0 10px rgba(0, 245, 255, 0.15);
+  outline: none;
+  transition: border 0.3s ease, background 0.3s ease;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  outline: none;
-  background: rgba(0, 245, 255, 0.05);
-  box-shadow: 0 0 12px #00f5ff, inset 0 0 10px rgba(0, 245, 255, 0.2);
+  border: 1px solid #00f5ff;
+  background-color: rgba(0, 245, 255, 0.05);
 }
 
-/* ===== Submit Button ===== */
+/* Button */
 .contact-form button {
-  margin-top: 18px;
-  background: linear-gradient(135deg, #00c8d6, #00f5ff);
-  color: #000;
+  background-color: #00f5ff;
+  color: #041d25;
+  padding: 12px 25px;
   border: none;
-  padding: 14px 32px;
-  border-radius: 12px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: bold;
+  font-size: 1.1rem;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 25px rgba(0, 245, 255, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 245, 255, 0.5);
 }
 
 .contact-form button:hover {
-  background: #00f5ff;
-  transform: translateY(-3px);
-  box-shadow: 0 15px 35px #00f5ff;
+  background-color: #00c5cc;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00f5ff;
 }
 
-/* ===== Entrance Animation ===== */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Local Thank You Message */
+#local-thank-you {
+  display: none;
+  margin-top: 25px;
+  color: #00f5ff;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
 }
 
-/* ===== Responsive Layout ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Tweaks */
 @media (max-width: 768px) {
-  .contact-container {
-    flex-direction: column;
-    gap: 30px;
-    padding: 0 10px;
-  }
-
   .contact-info,
   .contact-form {
-    width: 100%;
-    transform: none !important;
-    box-shadow: 0 15px 30px rgba(0, 245, 255, 0.15);
-    padding: 28px 22px;
-  }
-
-  .contact-form:hover,
-  .contact-info:hover {
-    transform: none;
-    box-shadow: 0 20px 40px rgba(0, 245, 255, 0.2);
-  }
-
-  .contact-info h2,
-  .contact-form h2 {
-    font-size: 2rem;
-    text-align: center;
+    padding: 25px;
   }
 
   .contact-form button {
     width: 100%;
-    text-align: center;
   }
 }

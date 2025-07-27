@@ -1,0 +1,68 @@
+/* ==== Share Container Base ==== */
+.share-container {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  gap: 12px;
+}
+
+/* ==== Share Toggle Button ==== */
+.share-btn {
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(135deg, #00c8d6, #00f5ff);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(0, 245, 255, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.share-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 20px rgba(0, 245, 255, 0.6);
+}
+
+/* ==== Social Icons ==== */
+.social-icons {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+/* ==== Show when toggled ==== */
+#toggle-share:checked ~ .social-icons {
+  max-height: 500px;
+  opacity: 1;
+}
+
+/* ==== Social Icon Styles ==== */
+.social-icons li a {
+  width: 42px;
+  height: 42px;
+  background: #00f5ff;
+  color: #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.social-icons li a:hover {
+  background: #00c8d6;
+  transform: scale(1.15);
+}

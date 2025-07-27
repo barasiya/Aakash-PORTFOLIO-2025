@@ -53,7 +53,7 @@ header {
 .logo {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #000000;
+  color: #000;
   padding: 4px 10px;
   border-radius: 6px;
 }
@@ -76,7 +76,6 @@ header {
   position: relative;
   color: #0059ff;
   transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
-  text-decoration: none;
 }
 
 .nav-container nav a::after {
@@ -187,7 +186,99 @@ header {
   left: -20px;
 }
 
-/* ===== Glow and Fade Animations ===== */
+
+
+
+/* ===== Floating Social Links (Left) ===== */
+.social-left {
+  position: fixed;
+  top: 30%; /* Adjust this value to control vertical placement */
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.05); /* Optional soft background */
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  z-index: 1000;
+}
+
+.social-left a {
+  color: #000;
+  font-size: 1.6rem;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-left a:hover {
+  background-color: #00f5ff;
+  color: #000;
+  box-shadow: 0 0 12px rgba(0, 245, 255, 0.4);
+}
+
+
+
+
+/* ===== Footer Section ===== */
+.site-footer {
+  background-color: #0f172a;
+  color: #e2e8f0;
+  text-align: center;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-social {
+  margin-bottom: 20px;
+}
+
+.footer-social a {
+  color: #e2e8f0;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #38bdf8;
+}
+
+.footer-nav {
+  margin: 20px 0;
+}
+
+.footer-nav a {
+  color: #e2e8f0;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+  color: #38bdf8;
+}
+
+.footer-credit {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+.footer-credit strong {
+  color: #facc15;
+}
+
+/* ===== Animations ===== */
 @keyframes glow {
   0% { text-shadow: 0 0 5px #00f5ff, 0 0 10px #00f5ff, 0 0 20px #00f5ff; }
   100% { text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff, 0 0 40px #00f5ff; }
@@ -206,23 +297,11 @@ header {
   animation: fade-in-up 1s ease-out forwards;
 }
 
-/* ===== Shared Animations ===== */
 @keyframes rotateBorder {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
-@keyframes slideFadeIn {
-  0% { transform: translateX(-50px); opacity: 0; }
-  100% { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes lightSweep {
-  0% { left: -75%; }
-  100% { left: 150%; }
-}
-
-/* ===== Updated Fade-In Animation with Delay Support ===== */
 @keyframes fadeIn {
   0% { opacity: 0; transform: translateY(10px); }
   100% { opacity: 1; transform: translateY(0); }
@@ -241,95 +320,12 @@ header {
   animation-delay: 1.2s;
 }
 
-/* ===== Slide-Up (Optional) ===== */
-.slide-up {
-  transform: translateY(20px);
-  opacity: 0;
-  animation: slideUp 1s ease forwards;
-}
-
-@keyframes slideUp {
-  to { transform: translateY(0); opacity: 1; }
-}
-
-/* ===== Floating Social Icons (Left) with 3D Hover & Glow ===== */
-.social-left {
-  position: fixed;
-  top: 10%;
-  left: 20px;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  z-index: 1000;
-  animation: slideFadeIn 1s ease-in-out forwards;
-  opacity: 0;
-}
-
-.social-left a {
-  font-size: 1.6rem;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: linear-gradient(145deg, #e0ffff, #ffffff);
-  color: #00bcd4;
-  text-decoration: none;
-  box-shadow: 0 4px 8px rgba(0, 245, 255, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.6);
-  transition: all 0.4s ease;
-  transform-style: preserve-3d;
-  perspective: 1000px;
-  position: relative;
-  overflow: hidden;
-}
-
-.social-left a:hover {
-  transform: scale(1.15) rotateY(12deg) rotateX(6deg);
-  color: #fff;
-  background: linear-gradient(145deg, #00f5ff, #007bff);
-  box-shadow: 0 0 20px rgba(0, 245, 255, 0.6), 0 8px 20px rgba(0, 123, 255, 0.4);
-}
-
-.social-left a::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
-  transform: skewX(-25deg);
-  transition: left 0.5s ease;
-  pointer-events: none;
-}
-
-.social-left a:hover::before {
-  left: 120%;
-}
-
-[data-theme="dark"] .social-left a {
-  background: linear-gradient(145deg, #222831, #393e46);
-  color: #00f5ff;
-  box-shadow: 0 2px 8px rgba(0, 245, 255, 0.2), inset 0 2px 4px rgba(255, 255, 255, 0.05);
-}
-
-[data-theme="dark"] .social-left a:hover {
-  background: linear-gradient(145deg, #00f5ff, #00bcd4);
-  color: #111;
-  box-shadow: 0 0 20px rgba(0, 245, 255, 0.8), 0 10px 24px rgba(0, 123, 255, 0.5);
-}
-
-/* ===== Mobile Responsive Fixes ===== */
+/* ===== Responsive Fixes ===== */
 @media (max-width: 768px) {
-
-  /* Show hamburger */
   .menu-toggle {
     display: block;
   }
 
-  /* Hide nav by default */
   .nav-container {
     position: absolute;
     top: 60px;
@@ -343,7 +339,6 @@ header {
     z-index: 9999;
   }
 
-  /* Show nav when active */
   .nav-container.active {
     display: flex;
   }
@@ -360,29 +355,22 @@ header {
     padding: 12px 0;
   }
 
-  /* Adjust social icons: show at bottom centered */
-  .social-left {
+  .footer-nav {
     display: flex;
-    top: auto;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    flex-direction: row;
-    gap: 12px;
-    opacity: 1;
-    animation: none;
-    position: fixed;
-    z-index: 1000;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  .social-left a {
-    width: 40px;
-    height: 40px;
-    font-size: 1.3rem;
+  .footer-nav a {
+    margin: 5px 8px;
+    font-size: 0.9rem;
+  }
+
+  .footer-credit {
+    font-size: 0.8rem;
   }
 }
 
-/* Optional: further smaller screen tweaks */
 @media (max-width: 400px) {
   .hero-text h2 {
     font-size: 2.2rem;
