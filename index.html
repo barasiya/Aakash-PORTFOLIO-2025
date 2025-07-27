@@ -50,38 +50,67 @@
 
 
 
-  <main>
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-      <canvas id="hero-canvas"></canvas>
+  <section id="home" class="hero">
+  <canvas id="hero-canvas"></canvas>
 
-      <div class="hero-container">
-        <!-- Left: Text Content -->
-        <div class="hero-text">
-          <p class="fade-in">Hi There!</p>
-          <h2 class="slide-up">I'm <span class="highlight">Aakash Barasiya</span></h2>
-          <p class="fade-in delay-1 programmer-tag">&lt; Programmer &gt;</p>
-          <p class="fade-in delay-2">I am a <span class="highlight">Frontend Developer</span></p>
-          <p class="fade-in delay-3">Feel free to <span class="highlight">connect</span> with me.</p>
-        </div>
+  <section id="home" class="relative hero overflow-hidden min-h-screen flex items-center justify-center text-center px-6 bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364] text-white">
+  <!-- Background Canvas (for 3D stars or animation) -->
+  <canvas id="hero-canvas" class="absolute top-0 left-0 w-full h-full z-0"></canvas>
 
-        <!-- Right: Image -->
-        <div class="hero-img fade-in delay-2">
-          <div class="tilt-container">
-            <img src="aakash.jpg" alt="Aakash Barasiya" />
-          </div>
-        </div>
-      </div>
+  <!-- Hero Content -->
+  <div class="z-10 max-w-3xl mx-auto animate-fade-in-up">
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 leading-tight drop-shadow-2xl">
+      <span class="block text-[var(--primary-color)] animate-glow">Hi 👋, I'm</span>
+      <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500">
+        Aakash Barasiya
+      </span>
+    </h1>
 
-      <!-- Floating Social Links (Left) -->
-      <div class="social-left">
-        <a href="https://github.com/barasiya" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/aakash-barasiya-13173b215" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/akash_12sia_02?igsh=MTd1cXQ5bGVkNzdkMw==" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="mailto:aakashbarasiya2001@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://wa.me/919575133239?text=Hi%20Aakash%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank"><i class="fab fa-whatsapp"></i></a>
-      </div>
-    </section>
+<h3 class="text-xl sm:text-2xl md:text-3xl mb-4 font-medium text-gray-200 tracking-wide">
+  <span class="fade-in delay-1">Frontend Developer</span>
+  <span class="fade-in delay-2 text-cyan-300 ml-2">Java Programmer</span>
+</h3>
+
+
+    <p class="text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed">
+      Crafting responsive web apps with clean UI & quality code.<br />
+      B.Tech CS @ SISTec | Passionate about <span class="text-cyan-400">React</span>, <span class="text-cyan-400">DBMS</span>, and <span class="text-cyan-400">Java</span>.
+    </p>
+
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="/resume.pdf" download class="px-6 py-3 rounded-full font-semibold bg-cyan-500 hover:bg-cyan-600 text-white shadow-lg transform hover:-translate-y-1 hover:shadow-cyan-500/50 transition-all duration-300">
+        ⬇️ Download Resume
+      </a>
+      <a href="#contact" class="px-6 py-3 rounded-full font-semibold border-2 border-cyan-400 text-cyan-300 hover:bg-cyan-500 hover:text-white shadow-md transform hover:-translate-y-1 transition-all duration-300">
+        📬 Contact Me
+      </a>
+    </div>
+  </div>
+</section>
+
+  
+
+  <!-- Right: Image -->
+  <div class="hero-img fade-in delay-2">
+    <div class="tilt-container">
+      <img src="aakash.jpg" alt="Aakash Barasiya" />
+    </div>
+  </div>
+
+<!-- Floating Social Links (Left) -->
+<div class="social-left">
+  <a href="https://github.com/barasiya" target="_blank"><i class="fab fa-github"></i></a>
+  <a href="https://www.linkedin.com/in/aakash-barasiya-13173b215" target="_blank"><i class="fab fa-linkedin"></i></a>
+  <a href="https://www.instagram.com/akash_12sia_02?igsh=MTd1cXQ5bGVkNzdkMw==" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="mailto:aakashbarasiya2001@gmail.com"><i class="fas fa-envelope"></i></a>
+  <a href="https://wa.me/919575133239?text=Hi%20Aakash%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+</section>
+
+
+
+    
 
     <!-- Education Section -->
     <section id="education" class="education-section">
@@ -408,153 +437,140 @@
 </section>
 
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-      <div class="contact-container">
-        <div class="contact-info">
-          <h2>Contact Me</h2>
-          <p>I would love to hear from you — whether it's feedback, opportunities or questions.</p>
-          <p><i class="fas fa-map-marker-alt"></i> India</p>
-          <p><i class="fas fa-envelope"></i> aakashbarasiya2001@gmail.com</p>
-          <p><i class="fas fa-phone-alt"></i> +91 9575133239</p>
-        </div>
+<!-- ===== Contact Section ===== -->
+<section id="contact" class="contact-section">
+  <div class="contact-container" style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center;">
 
-        <div class="contact-form">
-          <h2>Leave A Message</h2>
-          <form action="https://formsubmit.co/aakashbarasiya2001@gmail.com" method="POST">
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_next" value="https://aakashbarasiya.com/thankyou.html" />
+    <!-- Contact Info -->
+    <div class="contact-info" style="flex: 1; min-width: 280px;">
+      <h2>Contact Me</h2>
+      <p>I would love to hear from you — whether it's feedback, opportunities or questions.</p>
+      <p><i class="fas fa-map-marker-alt"></i> India</p>
+      <p><i class="fas fa-envelope"></i> <a href="mailto:aakashbarasiya2001@gmail.com">aakashbarasiya2001@gmail.com</a></p>
+      <p><i class="fas fa-phone-alt"></i> <a href="tel:+919575133239">+91 95751 33239</a></p>
+    </div>
 
-            <input type="text" name="firstName" placeholder="First Name" required />
-            <input type="text" name="lastName" placeholder="Last Name (optional)" />
-            <input type="email" name="email" placeholder="Email" required />
-            <input type="text" name="phone" placeholder="Phone (optional)" />
-            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+ <!-- Contact Form -->
+<div class="contact-form" style="flex: 1; min-width: 320px;">
+  <h2 class="section-title">Leave A Message</h2>
 
-            <button type="submit">Send Message</button>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
+  <form id="custom-contact-form">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
 
- <div class="share-container">
+    <input type="text" name="First Name" placeholder="First Name" required>
+    <input type="text" name="Last Name" placeholder="Last Name">
+    <input type="email" name="Email" placeholder="Email" required>
+    <input type="text" name="Phone" placeholder="Phone">
+    <textarea name="Message" rows="5" placeholder="Your Message" required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+
+  <div id="local-thank-you" style="display: none; margin-top: 20px; color: #00f5ff; font-size: 1.2rem;">
+    ✅ Thank you! Your message has been sent.
+  </div>
+</div>
+
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ==== SHARE BUTTON ==== -->
+<div class="share-container">
   <input type="checkbox" id="toggle-share" hidden>
   <label for="toggle-share" class="share-btn">
     <i class="fas fa-share-alt"></i>
   </label>
 
   <ul class="social-icons">
-    <!-- Twitter -->
-    <li>
-      <a href="https://twitter.com/intent/tweet?url=https://aakash-portfolio-2025.vercel.app/&text=Check%20out%20this%20awesome%20portfolio!" target="_blank">
-        <i class="fab fa-x-twitter"></i>
-      </a>
-    </li>
-
-    <!-- Reddit -->
-    <li>
-      <a href="https://www.reddit.com/submit?url=https://aakash-portfolio-2025.vercel.app/&title=Aakash%20Barasiya%20Portfolio" target="_blank">
-        <i class="fab fa-reddit-alien"></i>
-      </a>
-    </li>
-
-    <!-- LinkedIn -->
-    <li>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://aakash-portfolio-2025.vercel.app/" target="_blank">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
-    </li>
-
-    <!-- Instagram (no link share available, using your profile) -->
-    <li>
-      <a href="https://www.instagram.com/akash_12sia_02" target="_blank">
-        <i class="fab fa-instagram"></i>
-      </a>
-    </li>
-
-    <!-- GitHub (profile only) -->
-    <li>
-      <a href="https://github.com/barasiya" target="_blank">
-        <i class="fab fa-github"></i>
-      </a>
-    </li>
-
-    <!-- YouTube (channel only) -->
-    <li>
-      <a href="https://www.youtube.com/@yourchannelname" target="_blank">
-        <i class="fab fa-youtube"></i>
-      </a>
-    </li>
-
-    <!-- Facebook Share -->
-    <li>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://aakash-portfolio-2025.vercel.app/" target="_blank">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-    </li>
-
-    <!-- WhatsApp -->
-    <li>
-      <a href="https://wa.me/919575133239?text=Hi%20Aakash%2C%20I%20visited%20your%20portfolio%3A%20https%3A%2F%2Faakash-portfolio-2025.vercel.app%2F%20and%20would%20like%20to%20connect." target="_blank">
-        <i class="fab fa-whatsapp"></i>
-      </a>
-    </li>
+    <li><a href="https://twitter.com/intent/tweet?url=https://aakash-portfolio-2025.vercel.app/&text=Check%20out%20this%20awesome%20portfolio!" target="_blank"><i class="fab fa-x-twitter"></i></a></li>
+    <li><a href="https://www.reddit.com/submit?url=https://aakash-portfolio-2025.vercel.app/&title=Aakash%20Barasiya%20Portfolio" target="_blank"><i class="fab fa-reddit-alien"></i></a></li>
+    <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://aakash-portfolio-2025.vercel.app/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+    <li><a href="https://www.instagram.com/akash_12sia_02" target="_blank"><i class="fab fa-instagram"></i></a></li>
+    <li><a href="https://github.com/barasiya" target="_blank"><i class="fab fa-github"></i></a></li>
+    <li><a href="https://www.youtube.com/@yourchannelname" target="_blank"><i class="fab fa-youtube"></i></a></li>
+    <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://aakash-portfolio-2025.vercel.app/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+    <li><a href="https://wa.me/919575133239?text=Hi%20Aakash%2C%20I%20visited%20your%20portfolio%3A%20https%3A%2F%2Faakash-portfolio-2025.vercel.app%2F%20and%20would%20like%20to%20connect." target="_blank"><i class="fab fa-whatsapp"></i></a></li>
   </ul>
 </div>
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-
-
-
-  <!-- Include this where your footer goes -->
+<!-- ==== FOOTER SECTION ==== -->
 <footer class="site-footer">
-  <!-- Social Icons -->
   <div class="footer-social">
-   <a href="https://github.com/barasiya" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/aakash-barasiya-13173b215" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/akash_12sia_02?igsh=MTd1cXQ5bGVkNzdkMw==" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="mailto:aakashbarasiya2001@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://wa.me/919575133239?text=Hi%20Aakash%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://github.com/barasiya" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/aakash-barasiya-13173b215" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://www.instagram.com/akash_12sia_02" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="mailto:aakashbarasiya2001@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://wa.me/919575133239?text=Hi%20Aakash%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank"><i class="fab fa-whatsapp"></i></a>
   </div>
 
-  <!-- Footer Navigation -->
   <nav class="footer-nav">
     <a href="#home">Home</a>
-      <a href="#education">Education</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+    <a href="#education">Education</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
   </nav>
 
-  <!-- Footer Text -->
   <p class="footer-credit">@ Made By || <strong>Aakash Barasiya</strong></p>
 </footer>
 
-<!-- Font Awesome CDN (add in <head> of your main HTML if not already included) -->
+<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="share-footer.css">
 
 
-<!-- External Script -->
-<script src="script.js"></script>
+<!-- ===== Contact Form Submission + Local Thank You (FormSubmit.co) ===== -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("custom-contact-form");
+    const thankYouMessage = document.getElementById("local-thank-you");
 
-<!-- Theme Toggle Script -->
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        fetch("https://formsubmit.co/aakashbarasiya2001@gmail.com", {
+          method: "POST",
+          body: formData
+        })
+        .then(response => {
+          if (response.ok) {
+            form.reset(); // Clear the form
+            thankYouMessage.style.display = "block"; // Show thank-you message
+
+            setTimeout(() => {
+              thankYouMessage.style.display = "none";
+            }, 5000);
+          } else {
+            alert("❌ Failed to send. Please try again later.");
+          }
+        })
+        .catch(error => {
+          alert("❌ Network error. Please try again.");
+          console.error(error);
+        });
+      });
+    }
+  });
+</script>
+
+<!-- ===== Theme Toggle (Light / Dark / Auto) ===== -->
 <script>
   const themeSelect = document.getElementById('theme-select');
   if (themeSelect) {
-    function applyTheme(mode) {
-      if (mode === 'auto') {
-        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        document.body.classList.toggle('dark', isDark);
-      } else {
-        document.body.classList.toggle('dark', mode === 'dark');
-      }
-    }
+    const applyTheme = (mode) => {
+      document.body.classList.toggle('dark', mode === 'dark' || (mode === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches));
+    };
 
     themeSelect.addEventListener('change', (e) => {
       const mode = e.target.value;
@@ -572,29 +588,31 @@
   }
 </script>
 
-<!-- Sticky Header on Scroll -->
+<!-- ===== Sticky Header on Scroll ===== -->
 <script>
   window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
-    header.classList.toggle('sticky', window.scrollY > 50);
+    if (header) {
+      header.classList.toggle('sticky', window.scrollY > 50);
+    }
   });
 </script>
 
-<!-- Scroll Navigation Highlight -->
+<!-- ===== Scroll Navigation Highlight ===== -->
 <script>
   const sections = document.querySelectorAll('section');
   const navLinks = document.querySelectorAll('.nav-container nav a');
 
   window.addEventListener('scroll', () => {
     let current = '';
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 100;
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
       if (window.scrollY >= sectionTop) {
         current = section.getAttribute('id');
       }
     });
 
-    navLinks.forEach((link) => {
+    navLinks.forEach(link => {
       link.classList.remove('active');
       if (link.getAttribute('href').includes(current)) {
         link.classList.add('active');
@@ -603,7 +621,7 @@
   });
 </script>
 
-<!-- Certification Cards Tilt Effect -->
+<!-- ===== Tilt Effect for Certification Cards ===== -->
 <script>
   document.querySelectorAll('.cert-card').forEach((card) => {
     card.addEventListener('mousemove', (e) => {
@@ -622,9 +640,3 @@
     });
   });
 </script>
-
-
-</body>
-</html>
-
-

@@ -1,0 +1,123 @@
+/* ==== SHARE BUTTON DESIGN ==== */
+.share-container {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.share-btn {
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(135deg, #00c8d6, #00f5ff);
+  color: #fff;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 8px 15px rgba(0, 245, 255, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.share-btn:hover {
+  transform: rotate(90deg);
+}
+
+.social-icons {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+#toggle-share:checked ~ .social-icons {
+  display: flex;
+}
+
+.social-icons li {
+  list-style: none;
+}
+
+.social-icons li a {
+  width: 45px;
+  height: 45px;
+  background: #ffffff;
+  color: #00c8d6;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 6px 12px rgba(0, 245, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.social-icons li a:hover {
+  background: #00f5ff;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* ==== FOOTER STYLING ==== */
+.site-footer {
+  background: #0f1a2f;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+.footer-social {
+  margin-bottom: 15px;
+}
+
+.footer-social a {
+  color: #fff;
+  margin: 0 8px;
+  font-size: 1.3rem;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: #00f5ff;
+}
+
+.footer-nav {
+  margin: 15px 0;
+}
+
+.footer-nav a {
+  margin: 0 10px;
+  color: #ddd;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+  color: #00f5ff;
+}
+
+.footer-credit {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #bbb;
+}
+
+/* ==== ANIMATION ==== */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
