@@ -342,6 +342,7 @@ header {
   .menu-toggle {
     display: block;
   }
+
   .nav-container {
     position: absolute;
     top: 60px;
@@ -353,57 +354,75 @@ header {
     align-items: center;
     z-index: 9999;
   }
+
   .nav-container.active {
     display: flex;
   }
+
   .nav-container nav {
     flex-direction: column;
     gap: 1rem;
     width: 100%;
     padding: 10px 0;
   }
+
   .footer-nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
+
   .hero-container {
     flex-direction: column;
+    align-items: center;
     text-align: center;
     gap: 3rem;
   }
+
+  .hero-img {
+    order: -1;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .tilt-container {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
   .hero-text {
+    width: 100%;
     padding: 0 1rem;
   }
+
   .hero-text h1 {
     font-size: 2rem;
     margin-bottom: 0.8rem;
   }
+
   .hero-text h2 {
     font-size: 2.2rem;
     margin-bottom: 1rem;
   }
+
   .hero-text p {
     font-size: 1rem;
     max-width: 90%;
     margin: 0 auto 1rem;
   }
+
   .hero-buttons {
     flex-direction: column;
     gap: 14px;
     margin-top: 1.5rem;
   }
+
   .hero-buttons .btn {
     width: 100%;
     text-align: center;
-  }
-  .hero-img {
-    margin-top: 1rem;
-    justify-content: center;
-    align-items: center;
-  }
-  .tilt-container {
-    max-width: 220px;
+    max-width: 300px;
     margin: 0 auto;
   }
 }
