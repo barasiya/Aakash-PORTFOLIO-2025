@@ -1,10 +1,23 @@
+// script.js
+
+// Wait until DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
+  // ===== Theme Toggle =====
   const themeToggle = document.getElementById("theme-toggle");
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const root = document.documentElement;
 
   function setTheme(mode) {
-    document.documentElement.setAttribute("data-theme", mode);
+    root.setAttribute("data-theme", mode);
     localStorage.setItem("theme", mode);
+
+    if (mode === "dark") {
+      root.style.setProperty('--bg-color', '#0f172a');
+      root.style.setProperty('--text-color', '#f8fafc');
+    } else {
+      root.style.setProperty('--bg-color', '#ffffff');
+      root.style.setProperty('--text-color', '#150303');
+    }
   }
 
   function applySavedTheme() {
@@ -31,23 +44,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   applySavedTheme();
 
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navContainer = document.querySelector(".nav-container");
+  // ===== Mobile Menu Toggle =====
+  const menuToggle = document.getElementById("menu-toggle");
+  const navContainer = document.getElementById("nav-container");
 
-  menuToggle?.addEventListener("click", () => {
-    navContainer.classList.toggle("active");
-    menuToggle.classList.toggle("active");
-  });
+  if (menuToggle && navContainer) {
+    menuToggle.addEventListener("click", () => {
+      navContainer.classList.toggle("active");
+      menuToggle.classList.toggle("open");
+    });
+  }
 
+  // ===== Close Mobile Nav on Link Click =====
   const navLinks = document.querySelectorAll(".nav-container nav a");
   navLinks.forEach(link => {
     link.addEventListener("click", () => {
-      navContainer.classList.remove("active");
-      menuToggle.classList.remove("active");
+      if (navContainer && menuToggle) {
+        navContainer.classList.remove("active");
+        menuToggle.classList.remove("open");
+      }
     });
   });
 
-  document.querySelectorAll('.sidebar a[href^="#"]').forEach(link => {
+  // ===== Sidebar Smooth Scroll & Active Highlight =====
+  const sidebarLinks = document.querySelectorAll('.sidebar a[href^="#"]');
+  sidebarLinks.forEach(link => {
     link.addEventListener("click", e => {
       e.preventDefault();
       const target = document.querySelector(link.getAttribute("href"));
@@ -60,8 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
     const sections = document.querySelectorAll("section[id]");
-    const sidebarLinks = document.querySelectorAll(".sidebar a");
-    const navLinks = document.querySelectorAll(".nav-container nav a");
 
     sections.forEach(section => {
       const sectionTop = section.offsetTop - 100;
@@ -86,6 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // ===== Hero Tilt Effect =====
   document.querySelectorAll(".tilt").forEach(el => {
     el.addEventListener("mousemove", e => {
       const { width, height, left, top } = el.getBoundingClientRect();
@@ -101,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ===== Contact Form Thank You (after FormSubmit delay) =====
+  // ===== Contact Form Thank You Message =====
   const form = document.getElementById("custom-contact-form");
   const thankYou = document.getElementById("local-thank-you");
 
@@ -110,74 +130,29 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         thankYou.style.display = "block";
         form.reset();
-      }, 1000); // Wait for formsubmit to complete silently
+      }, 1000);
     });
   }
 
+  // ===== Toggle Share Icons =====
   const toggleShare = document.getElementById("toggle-share");
   const socialIcons = document.querySelector(".social-icons");
 
-  toggleShare?.addEventListener("change", () => {
-    if (toggleShare.checked) {
-      socialIcons.classList.add("visible");
-    } else {
-      socialIcons.classList.remove("visible");
-    }
-  });
-});
-
-
-// ======= Mobile Menu Toggle =======
-const menuToggle = document.querySelector('.menu-toggle');
-const navContainer = document.querySelector('.nav-container');
-
-menuToggle.addEventListener('click', () => {
-  navContainer.classList.toggle('active');
-  menuToggle.classList.toggle('open');
-});
-
-// ======= Theme Toggle =======
-const themeToggle = document.querySelector('#theme-toggle');
-const root = document.documentElement;
-
-themeToggle?.addEventListener('click', () => {
-  document.body.classList.toggle('dark-theme');
-
-  // You can add more logic if you're toggling variables
-  if (document.body.classList.contains('dark-theme')) {
-    root.style.setProperty('--bg-color', '#0f172a');
-    root.style.setProperty('--text-color', '#f8fafc');
-  } else {
-    root.style.setProperty('--bg-color', '#ffffff');
-    root.style.setProperty('--text-color', '#150303');
+  if (toggleShare && socialIcons) {
+    toggleShare.addEventListener("change", () => {
+      socialIcons.classList.toggle("visible", toggleShare.checked);
+    });
   }
+
+  // ===== Animate on Scroll =====
+  const fadeElems = document.querySelectorAll('.fade-in');
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('appear');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.1 });
+
+  fadeElems.forEach(el => appearOnScroll.observe(el));
 });
-
-// ======= Animate Elements on Scroll =======
-const fadeElems = document.querySelectorAll('.fade-in');
-
-const appearOnScroll = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-
-    entry.target.classList.add('appear');
-    observer.unobserve(entry.target);
-  });
-}, {
-  threshold: 0.1,
-});
-
-fadeElems.forEach(el => appearOnScroll.observe(el));
-
-// ======= Hero Tilt Animation (Optional: Add VanillaTilt.js if needed) =======
-// You can include VanillaTilt.js for 3D tilt effects if required:
-// Example: 
-// VanillaTilt.init(document.querySelector(".tilt-container"), {
-//   max: 15,
-//   speed: 400,
-//   glare: true,
-//   "max-glare": 0.2
-// });
-
-// ======= WhatsApp & Mail Links Are Handled by HTML Itself =======
-// No JS required unless you want to dynamically generate the message
