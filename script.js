@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ===== Sidebar Smooth Scroll & Active Highlight =====
+  // ===== Sidebar Smooth Scroll =====
   const sidebarLinks = document.querySelectorAll('.sidebar a[href^="#"]');
   sidebarLinks.forEach(link => {
     link.addEventListener("click", e => {
@@ -77,29 +77,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // ===== Scroll-Based Nav Highlight (merged) =====
   window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
     const sections = document.querySelectorAll("section[id]");
 
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
+    let current = "";
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 120;
       const sectionHeight = section.offsetHeight;
-      const id = section.getAttribute("id");
+      const sectionId = section.getAttribute("id");
 
       if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        sidebarLinks.forEach(link => {
-          link.classList.remove("active");
-          if (link.getAttribute("href") === `#${id}`) {
-            link.classList.add("active");
-          }
-        });
+        current = sectionId;
+      }
+    });
 
-        navLinks.forEach(link => {
-          link.classList.remove("active");
-          if (link.getAttribute("href") === `#${id}` || link.getAttribute("href").includes(id)) {
-            link.classList.add("active");
-          }
-        });
+    // Highlight sidebar links
+    sidebarLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
+
+    // Highlight top nav links
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}` || link.getAttribute("href").includes(current)) {
+        link.classList.add("active");
       }
     });
   });
@@ -126,7 +133,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (form && thankYou) {
     form.addEventListener("submit", function () {
-      // This delay ensures FormSubmit gets time to process before we show message
       setTimeout(() => {
         thankYou.style.display = "block";
         form.reset();

@@ -1,20 +1,50 @@
 /* ===== Global Fix ===== */
 body {
   overflow-x: hidden;
+  margin: 0;
+  background: #ffffff; /* White outer background */
+  font-family: 'Barlow Condensed', sans-serif;
 }
 
 /* ===== Contact Section Styling ===== */
 #contact {
   padding: 80px 20px;
-  background: radial-gradient(ellipse at top, #041d25 0%, #0b3d4e 100%);
+  background: #ffffff;
   color: white;
-  font-family: 'Barlow Condensed', sans-serif;
   position: relative;
   z-index: 1;
-  perspective: 1500px;
 }
 
-/* Floating glow animation */
+/* Glowing Card Container */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+}
+
+/* Glassmorphism Glowing Cards */
+.contact-info,
+.contact-form {
+  flex: 1;
+  min-width: 320px;
+  backdrop-filter: blur(20px);
+  background: rgba(11, 43, 53, 0.9);
+  border: 2px solid #00f5ff;
+  border-radius: 22px;
+  padding: 40px;
+  box-shadow: 
+    0 0 25px rgba(0, 245, 255, 0.25),
+    inset 0 0 30px rgba(0, 245, 255, 0.08);
+  animation: floatGlow 6s ease-in-out infinite;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
 @keyframes floatGlow {
   0%, 100% {
     transform: translateY(0);
@@ -26,63 +56,34 @@ body {
   }
 }
 
-.contact-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
-
-.contact-info,
-.contact-form {
-  flex: 1;
-  min-width: 320px;
-  backdrop-filter: blur(20px);
-  background: rgba(11, 43, 53, 0.25);
-  border: 1px solid rgba(0, 245, 255, 0.15);
-  border-radius: 22px;
-  padding: 40px;
-  box-shadow:
-    0 10px 30px rgba(0, 245, 255, 0.15),
-    inset 0 0 30px rgba(0, 245, 255, 0.08);
-  animation: floatGlow 6s ease-in-out infinite;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  transform-style: preserve-3d;
-  will-change: transform;
-}
-
 .contact-info:hover,
 .contact-form:hover {
   transform: translateY(-10px) scale(1.02) rotateX(1deg) rotateY(1deg);
   box-shadow: 0 0 60px rgba(0, 245, 255, 0.3);
 }
 
-/* Titles */
+/* Section Titles */
 .contact-info h2,
 .contact-form h2 {
   color: #00f5ff;
-  font-size: 2rem;
+  font-size: 2.4rem;
   margin-bottom: 25px;
   border-bottom: 2px solid #00f5ff;
   padding-bottom: 10px;
   letter-spacing: 1px;
 }
 
-/* Contact Info Text */
+/* Contact Info Lines */
 .contact-info p {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  line-height: 1.8;
   margin-bottom: 14px;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-/* Inputs */
+/* Form Inputs & Textarea */
 .contact-form input,
 .contact-form textarea {
   width: 100%;
@@ -92,7 +93,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.07);
   color: white;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-family: inherit;
   outline: none;
   transition: border 0.3s ease, background 0.3s ease, transform 0.2s ease;
@@ -105,7 +106,7 @@ body {
   transform: scale(1.02);
 }
 
-/* Button */
+/* Send Button */
 .contact-form button {
   background-color: #00f5ff;
   color: #041d25;
@@ -114,7 +115,7 @@ body {
   border-radius: 12px;
   cursor: pointer;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   transition: all 0.3s ease;
   box-shadow: 0 6px 20px rgba(0, 245, 255, 0.5);
   width: auto;
@@ -127,12 +128,12 @@ body {
   box-shadow: 0 0 25px #00f5ff;
 }
 
-/* Local Thank You Message */
+/* Thank You Message */
 #local-thank-you {
   display: none;
   margin-top: 25px;
   color: #00f5ff;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 600;
   text-align: center;
   animation: fadeIn 0.6s ease-in-out;
@@ -153,7 +154,7 @@ body {
   }
 }
 
-/* Responsive Tweaks */
+/* Responsive Design */
 @media (max-width: 768px) {
   .contact-info,
   .contact-form {

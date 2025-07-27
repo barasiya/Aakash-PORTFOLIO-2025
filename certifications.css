@@ -32,8 +32,9 @@ body {
 .section-subtitle {
   text-align: center;
   font-size: 40px;
-  color: #0c4a6e;
+  color: #0f2027;
   margin-bottom: 60px;
+  text-shadow: 0 0 4px rgba(0, 245, 255, 0.2);
   animation: fadeInDown 1s ease forwards;
 }
 
@@ -47,11 +48,12 @@ body {
 
 /* ===== Certificate Card ===== */
 .cert-card {
-  background: transparent; /* transparent, actual bg on faces */
+  background: transparent;
   perspective: 1000px;
-  width: 320px;       /* increased width */
-  height: 420px;      /* fixed height */
+  width: 320px;
+  height: 420px;
   margin: auto;
+  position: relative;
 }
 
 /* Inner container for flip */
@@ -62,7 +64,7 @@ body {
   transform-style: preserve-3d;
   transition: transform 0.8s ease;
   border-radius: 22px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* Flip on hover */
@@ -70,7 +72,7 @@ body {
   transform: rotateY(180deg);
 }
 
-/* Faces */
+/* ===== Card Faces ===== */
 .card-face {
   position: absolute;
   width: 100%;
@@ -84,9 +86,9 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(16px) saturate(180%);
+  background: #ffffff;
+  border: 1px solid #00f5ff33;
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.05);
 }
 
 /* Front Face */
@@ -96,12 +98,13 @@ body {
 
 /* Back Face */
 .card-face.back {
-  background: rgba(255, 255, 255, 0.15);
-  color: #111;
+  background: #f2f2f2;
+  color: #1a1a1a;
   transform: rotateY(180deg);
+  box-shadow: inset 0 0 8px #00f5ff22;
 }
 
-/* Glow Border */
+/* ===== Glow Borders for Each Card ===== */
 .cert-card::before {
   content: "";
   position: absolute;
@@ -109,10 +112,9 @@ body {
   left: -2px;
   width: calc(100% + 4px);
   height: calc(100% + 4px);
-  background: linear-gradient(135deg, #00feba, #5bffea);
   z-index: -1;
   filter: blur(25px);
-  opacity: 0.08;
+  opacity: 0.1;
   border-radius: 25px;
   transition: opacity 0.4s ease;
 }
@@ -120,7 +122,44 @@ body {
   opacity: 0.2;
 }
 
-/* Image Styling (front) */
+.cert-card:nth-child(1)::before {
+  background: linear-gradient(135deg, #00feba, #00f5ff);
+}
+.cert-card:nth-child(2)::before {
+  background: linear-gradient(135deg, #ff6ec4, #7873f5);
+}
+.cert-card:nth-child(3)::before {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+.cert-card:nth-child(4)::before {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+}
+.cert-card:nth-child(5)::before {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+}
+.cert-card:nth-child(6)::before {
+  background: linear-gradient(135deg, #c471f5, #fa71cd);
+}
+.cert-card:nth-child(7)::before {
+  background: linear-gradient(135deg, #00c3ff, #ffff1c);
+}
+.cert-card:nth-child(8)::before {
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+}
+.cert-card:nth-child(9)::before {
+  background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+}
+.cert-card:nth-child(10)::before {
+  background: linear-gradient(135deg, #f6d365, #fda085);
+}
+.cert-card:nth-child(11)::before {
+  background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+}
+.cert-card:nth-child(12)::before {
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+}
+
+/* ===== Image Styling (front) ===== */
 .card-face.front img {
   width: 100px;
   height: 100px;
@@ -128,14 +167,13 @@ body {
   object-fit: contain;
   filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.2));
   animation: fadeIn 1s ease forwards;
-  max-width: 100%;
 }
 
 /* Text Front */
 .card-face.front h4 {
   font-size: 24px;
   margin-bottom: 12px;
-  color: #111;
+  color: #0f2027;
 }
 .card-face.front p {
   font-size: 18px;
@@ -148,24 +186,25 @@ body {
   font-size: 18px;
   margin-bottom: 20px;
   font-weight: 600;
+  color: #222;
 }
 
 /* View Certificate Button (back) */
 .card-face.back a {
   display: inline-block;
   text-decoration: none;
-  color: #fff;
-  background: linear-gradient(135deg, #0077b6, #00c9ff);
+  color: #000;
+  background: #00f5ff;
   padding: 14px 28px;
   border-radius: 12px;
   font-weight: bold;
-  box-shadow: 0 0 15px rgba(0, 201, 255, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 245, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 .card-face.back a:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px #00c9ff, 0 0 30px #00c9ff;
-  background: linear-gradient(135deg, #00c9ff, #0077b6);
+  background: #00c2cc;
 }
 
 /* ===== Animations ===== */
