@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener("DOMContentLoaded", () => {
   // ===== Theme Toggle =====
   const themeToggle = document.getElementById("theme-toggle");
@@ -43,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   applySavedTheme();
 
-  // ===== Mobile Menu Toggle =====
+  // ===== Mobile Menu Toggle (Top Navbar) =====
   const menuToggle = document.getElementById("menu-toggle");
   const navContainer = document.getElementById("nav-container");
 
@@ -111,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ===== Hero Tilt Effect (3D Image Movement) =====
+  // ===== Hero Tilt Effect =====
   document.querySelectorAll(".tilt-container").forEach(el => {
     el.addEventListener("mousemove", e => {
       const { width, height, left, top } = el.getBoundingClientRect();
@@ -172,12 +170,29 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // ✅ ===== SIDEBAR TOGGLE FUNCTION (your request) =====
+  const sidebar = document.getElementById('mobileSidebar');
+  const sidebarToggleBtn = document.getElementById('sidebar-toggle'); // Optional button for ☰
+
+  if (sidebarToggleBtn && sidebar) {
+    sidebarToggleBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("open");
+    });
+  }
+
+  // ✅ ===== CLOSE SIDEBAR ON LINK CLICK =====
+  document.querySelectorAll('.sidebar a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (sidebar) {
+        sidebar.classList.remove('open');
+      }
+    });
+  });
 });
 
 
-
-
-
+// ===== Education Card Reveal on Scroll =====
 window.addEventListener("scroll", () => {
   document.querySelectorAll(".education-card").forEach(card => {
     const rect = card.getBoundingClientRect();

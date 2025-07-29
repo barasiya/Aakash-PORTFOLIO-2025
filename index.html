@@ -30,22 +30,26 @@
 </head>
 
 <body>
-  <!-- ===== Header Section ===== -->
-  <header>
-    <div class="logo">Aakash Barasiya</div>
+<!-- Header with Hamburger Button -->
+<header>
+  <div class="logo">Aakash Barasiya</div>
+  <div class="hamburger" onclick="toggleSidebar()">
+    ☰
+  </div>
+</header>
 
-    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+<!-- Sidebar Navigation -->
+<nav class="sidebar" id="mobileSidebar">
+  <ul>
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-    <div class="nav-container" id="nav-container">
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#education">Education</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
     </div>
   </header>
 
