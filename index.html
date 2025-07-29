@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+  
   <title>Aakash Barasiya Portfolio</title>
 
-  <!-- Google Font -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600&display=swap" rel="stylesheet" />
 
   <!-- Stylesheets -->
@@ -21,68 +21,12 @@
   <link rel="stylesheet" href="myskills.css" />
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
-  <!-- Internal CSS for menu toggle -->
-  <style>
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 28px;
-      color: #00f5ff;
-      cursor: pointer;
-      z-index: 999;
-      position: absolute;
-      right: 20px;
-      top: 20px;
-    }
-
-    .nav-container {
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-container nav {
-      display: flex;
-      gap: 20px;
-    }
-
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-container {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        height: 100vh;
-        width: 240px;
-        background: #111;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-        transition: right 0.3s ease-in-out;
-        z-index: 998;
-      }
-
-      .nav-container.open {
-        right: 0;
-      }
-
-      .nav-container nav {
-        flex-direction: column;
-      }
-
-      .nav-container nav a {
-        color: #00f5ff;
-        font-size: 20px;
-        text-decoration: none;
-      }
-    }
-  </style>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 </head>
 
 <body>
@@ -90,12 +34,8 @@
   <header>
     <div class="logo">Aakash Barasiya</div>
 
-    <!-- Menu Toggle Button -->
-    <button class="menu-toggle" id="menu-toggle">
-      <i class="fas fa-bars"></i>
-    </button>
+    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
 
-    <!-- Navigation Menu -->
     <div class="nav-container" id="nav-container">
       <nav>
         <a href="#home">Home</a>
@@ -108,47 +48,6 @@
       </nav>
     </div>
   </header>
-
-  <!-- Add your main content here -->
-  <main>
-    <!-- Sections like #home, #education, #about, etc. -->
-  </main>
-
-  <!-- Optional Footer -->
-  <footer>
-    <p>© 2025 Aakash Barasiya. All rights reserved.</p>
-  </footer>
-
-  <!-- JavaScript for Toggle Menu -->
-  <script>
-    const menuToggle = document.getElementById("menu-toggle");
-    const navContainer = document.getElementById("nav-container");
-    const toggleIcon = menuToggle.querySelector("i");
-
-    menuToggle.addEventListener("click", () => {
-      navContainer.classList.toggle("open");
-
-      // Toggle icon
-      if (navContainer.classList.contains("open")) {
-        toggleIcon.classList.remove("fa-bars");
-        toggleIcon.classList.add("fa-times");
-      } else {
-        toggleIcon.classList.remove("fa-times");
-        toggleIcon.classList.add("fa-bars");
-      }
-    });
-
-    // Optional: Close on nav click
-    document.querySelectorAll(".nav-container nav a").forEach(link => {
-      link.addEventListener("click", () => {
-        navContainer.classList.remove("open");
-        toggleIcon.classList.remove("fa-times");
-        toggleIcon.classList.add("fa-bars");
-      });
-    });
-  </script>
-</body>
-</html>
 
   <!-- ===== Hero Section ===== -->
   <section id="home" class="hero relative overflow-hidden min-h-screen flex flex-col md:flex-row items-center justify-center text-center md:text-left px-6 bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364] text-white">
