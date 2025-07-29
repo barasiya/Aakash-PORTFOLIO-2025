@@ -173,3 +173,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+
+
+
+window.addEventListener("scroll", () => {
+  document.querySelectorAll(".education-card").forEach(card => {
+    const rect = card.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      card.style.opacity = 1;
+      card.style.animationPlayState = "running";
+    }
+  });
+});

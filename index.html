@@ -109,49 +109,59 @@
 
 
 
-    
+   <!-- ===== Education Section with Tilt and Animation ===== -->
+<section id="education" class="education-section">
+  <div class="education-heading-card">
+    <h1 class="section-title">🎓 Education</h1>
+    <p class="section-subtitle">Academic Background</p>
+  </div>
 
-    <!-- Education Section -->
-    <section id="education" class="education-section">
-      <div class="education-heading-card">
-        <h1 class="section-title">🎓 Education</h1>
-        <p class="section-subtitle">Academic background</p>
+  <div class="education-container">
+    <!-- SISTec Card -->
+    <div class="education-card tilt">
+      <img src="sistec.jpeg" alt="College Logo" class="college-logo" />
+      <div class="education-details">
+        <h2>B.Tech in Computer Science and Engineering</h2>
+        <p><strong>Sagar Institute of Science Technology and Research</strong></p>
+        <p class="timeline">2022 – 2026</p>
+        <ul>
+          <li>3rd year student with strong academic performance.</li>
+          <li>Core Subjects: DSA, DBMS, OS, COA, AI, etc.</li>
+          <li>Completed full-stack & backend development courses.</li>
+        </ul>
       </div>
+    </div>
 
-      <div class="education-card">
-        <img src="sistec.jpeg" alt="College Logo" class="college-logo" />
-        <div class="education-details">
-          <h2>B.Tech in Computer Science and Engineering</h2>
-          <p><strong>Sagar Institute of Science Technology and Research</strong></p>
-          <p class="timeline">2022 – 2026</p>
-          <ul>
-            <li>3rd year student with solid academic performance.</li>
-            <li>Studied: Data Structures, DBMS, OS, COA, AI, etc.</li>
-            <li>Completed multiple full-stack & backend courses.</li>
-          </ul>
-        </div>
+    <!-- Polytechnic Card -->
+    <div class="education-card tilt">
+      <img src="poly.jpeg" alt="Diploma College Logo" class="college-logo" />
+      <div class="education-details">
+        <h2>Diploma in IT and Engineering</h2>
+        <p><strong>Govt. Polytechnic College, Khirsadoh Chhindwara</strong></p>
+        <p class="timeline">2019 – 2022</p>
+        <ul>
+          <li>Programming fundamentals and electronics basics.</li>
+          <li>Projects in C, C++, Java.</li>
+          <li>Participated in workshops and tech fests.</li>
+        </ul>
+        <a href="https://drive.google.com/file/d/1eTnFHk1pxoF2rjWxERDdvnKVMVAuvzBY/view?usp=drive_link" 
+           class="certificate-btn" target="_blank">🎓 View Certificate</a>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="education-card">
-        <img src="poly.jpeg" alt="Diploma College Logo" class="college-logo" />
-        <div class="education-details">
-          <h2>Diploma in Information Technology and Engineering</h2>
-          <p><strong>Govt. Polytechnic College, Khirsadoh Chhindwara</strong></p>
-          <p class="timeline">2019 – 2022</p>
-          <ul>
-            <li>Programming fundamentals and electronics basics.</li>
-            <li>Projects in C, C++, Java.</li>
-            <li>Tech fests and hands-on workshops.</li>
-          </ul>
-          <a href="https://drive.google.com/file/d/1eTnFHk1pxoF2rjWxERDdvnKVMVAuvzBY/view?usp=drive_link" 
-   class="certificate-btn" 
-   target="_blank">
-   🎓 View Certificate
-</a>
+<!-- Tilt Script -->
+<script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
+<script>
+  VanillaTilt.init(document.querySelectorAll(".tilt"), {
+    max: 15,
+    speed: 400,
+    glare: true,
+    "max-glare": 0.2,
+  });
+</script>
 
-        </div>
-      </div>
-    </section>
 
     
 <!-- Certifications Section -->
