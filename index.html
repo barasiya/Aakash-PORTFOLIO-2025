@@ -27,80 +27,6 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
-
-  <style>
-    /* Responsive Header */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 30px;
-      background-color: #0d1b2a;
-      color: #fff;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    nav {
-      display: flex;
-      gap: 20px;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #00f5ff;
-    }
-
-    .menu-toggle {
-      display: none;
-      font-size: 26px;
-      background: none;
-      border: none;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-container {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: #0d1b2a;
-        width: 100%;
-        padding: 20px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      }
-
-      .nav-container.active {
-        display: flex;
-      }
-
-      nav {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -108,12 +34,8 @@
   <header>
     <div class="logo">Aakash Barasiya</div>
 
-    <!-- Hamburger Icon -->
-    <button class="menu-toggle" id="menu-toggle">
-      <i class="fas fa-bars"></i>
-    </button>
+    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
 
-    <!-- Navigation -->
     <div class="nav-container" id="nav-container">
       <nav>
         <a href="#home">Home</a>
@@ -126,31 +48,6 @@
       </nav>
     </div>
   </header>
-
-  <!-- ===== Add All Your Main Sections Below This (Home, Education, etc.) ===== -->
-  <main style="margin-top: 100px;">
-    <!-- Add content here... -->
-  </main>
-
-  <!-- ===== JavaScript for Hamburger Toggle ===== -->
-  <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const navContainer = document.getElementById('nav-container');
-
-    menuToggle.addEventListener('click', () => {
-      navContainer.classList.toggle('active');
-    });
-
-    // Optional: Auto-close on link click (for mobile)
-    document.querySelectorAll('.nav-container nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        navContainer.classList.remove('active');
-      });
-    });
-  </script>
-</body>
-</html>
-
 
   <!-- ===== Hero Section ===== -->
   <section id="home" class="hero relative overflow-hidden min-h-screen flex flex-col md:flex-row items-center justify-center text-center md:text-left px-6 bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364] text-white">
