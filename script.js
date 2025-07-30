@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ===== Mobile Menu Toggle =====
   const menuToggle = document.getElementById("menu-toggle");
-  const navContainer = document.getElementById("navbar"); // Make sure nav has id="navbar"
+  const navContainer = document.getElementById("navbar");
   const openIcon = document.getElementById("open-icon");
   const closeIcon = document.getElementById("close-icon");
 
@@ -59,7 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===== Close Nav on Link Click (Mobile) =====
   const navLinks = document.querySelectorAll(".nav-container a");
   navLinks.forEach(link => {
     link.addEventListener("click", () => {
@@ -136,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (form && thankYou) {
     form.addEventListener("submit", function (e) {
-      e.preventDefault(); // Prevent actual submission
+      e.preventDefault();
       setTimeout(() => {
         thankYou.style.display = "block";
         form.reset();
@@ -196,5 +195,12 @@ document.addEventListener("DOMContentLoaded", () => {
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
+  });
+
+  // ===== Button Glow Effect (for .btn class) =====
+  const buttons = document.querySelectorAll(".btn");
+  buttons.forEach((btn) => {
+    btn.addEventListener("mouseenter", () => btn.classList.add("glow"));
+    btn.addEventListener("mouseleave", () => btn.classList.remove("glow"));
   });
 });

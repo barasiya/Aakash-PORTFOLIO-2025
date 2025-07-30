@@ -147,26 +147,126 @@ a {
   100% { background-position: 0% 50%; }
 }
 
-/* ===== HERO SECTION ===== */
+
+
+
+
+/* ===== HERO SECTION AS CARD ===== */
 .hero {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 100px;
-  padding-bottom: 20px;
+  padding-top: 120px;
+  padding-bottom: 40px;
   width: 100%;
   min-height: 70vh;
 }
+
 .hero-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
   width: 90%;
+  background: rgb(234, 234, 241);
+  border: 2px solid rgba(0, 245, 255, 0.3);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 0 25px rgba(0, 245, 255, 0.1),
+              0 0 35px rgba(255, 0, 245, 0.05),
+              inset 0 0 12px rgba(0, 245, 255, 0.1);
+  transition: transform 0.4s ease;
   animation: fadeIn 1.2s ease;
+  backdrop-filter: blur(12px);
 }
+
+.hero-container:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 0 30px rgba(0, 245, 255, 0.4),
+              0 0 50px rgba(255, 0, 245, 0.2),
+              inset 0 0 16px rgba(0, 245, 255, 0.2);
+}
+
+/* TEXT SIDE */
+.hero-text {
+  flex: 1;
+  padding: 10px;
+  transform: perspective(800px) rotateY(-4deg);
+}
+
+.hero-text h1 {
+  font-size: 2.6rem;
+  margin-bottom: 0.4rem;
+  color: var(--highlight);
+}
+
+.hero-text .name {
+  font-size: 3.4rem;
+  font-weight: 800;
+  color: var(--accent);
+  text-shadow: 0 0 12px rgba(0, 245, 255, 0.8);
+}
+
+.hero-text h2 {
+  font-size: 1.8rem;
+  margin-top: 8px;
+  color: #0d0000;
+}
+
+.hero-text p {
+  margin: 16px 0;
+  color: #000f13;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* IMAGE SIDE */
+.hero-img {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-img img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid transparent;
+  background: linear-gradient(135deg, #00f5ff, #ff00f5, #f5ff00, #00c9d7);
+  background-size: 300% 300%;
+  animation: spinBorder 6s linear infinite;
+  padding: 5px;
+  box-shadow: 0 0 25px rgba(0, 245, 255, 0.5),
+              0 0 35px rgba(255, 0, 245, 0.5),
+              0 0 45px rgba(245, 255, 0, 0.5);
+  transition: transform 0.5s ease;
+  transform: perspective(1000px) rotateY(8deg);
+}
+
+.hero-img img:hover {
+  transform: perspective(1000px) rotateY(0deg) scale(1.05);
+}
+
+/* ===== ANIMATION ===== */
+@keyframes spinBorder {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -177,39 +277,54 @@ a {
     transform: scale(1);
   }
 }
-.hero-text {
-  flex: 1;
-  padding: 10px;
-  transform: perspective(800px) rotateY(-4deg);
+
+/* ===== MOBILE VERSION ===== */
+@media screen and (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 30px;
+    margin: 0 10px;
+  }
+
+  .hero-img img {
+    width: 220px;
+    height: 220px;
+  }
+
+  .hero-text {
+    text-align: center;
+    transform: none;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text .name {
+    font-size: 2.5rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.3rem;
+  }
+
+  .hero-text p {
+    font-size: 1.2rem;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
 }
-.hero-text h1 {
-  font-size: 2.8rem;
-  margin-bottom: 0.4rem;
-  color: var(--highlight);
-}
-.hero-text .name {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: var(--accent);
-  text-shadow: 0 0 12px rgba(0, 245, 255, 0.8);
-}
-.hero-text h2 {
-  font-size: 1.8rem;
-  margin-top: 8px;
-  color: #0d0000;
-}
-.hero-text p {
-  margin: 16px 0;
-  color: #000f13;
-  font-size: 25px;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-}
-.hero-buttons {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
+
+
+
+
+
+
+
+
 
 /* ===== HERO IMAGE ===== */
 .hero-img {
@@ -282,7 +397,7 @@ a {
 /* ===== SOCIAL LEFT ===== */
 .social-left {
   position: fixed;
-  top: 20%;
+  top: 30%;
   left: 20px;
   transform: translateY(-50%);
   display: flex;
@@ -292,7 +407,7 @@ a {
 }
 .social-left a {
   font-size: 30px;
-  color: #f8f9fa;
+  color: #000509;
   transition: 0.3s ease;
 }
 .social-left a:hover {
