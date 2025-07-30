@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aakash Barasiya Portfolio</title>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600&display=swap" rel="stylesheet" />
 
-  <!-- Stylesheets -->
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Main Stylesheets -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="education.css" />
   <link rel="stylesheet" href="Works.css" />
@@ -19,26 +21,23 @@
   <link rel="stylesheet" href="Contact.css" />
   <link rel="stylesheet" href="certifications.css" />
   <link rel="stylesheet" href="myskills.css" />
-
-  <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <link rel="stylesheet" href="share.css" />
 </head>
-
 <body>
-  <!-- ===== Header Section ===== -->
-  <header>
+
+<!-- ===== Header ===== -->
+<header>
+  <div class="header-inner">
+    <!-- Logo (Left) -->
     <div class="logo">Aakash Barasiya</div>
 
-    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+    <!-- Hamburger Button (Mobile) -->
+    <button class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">&#9776;</button>
 
+    <!-- Navigation Links (Right) -->
     <div class="nav-container" id="nav-container">
       <nav>
-        <a href="#home">Home</a>
+        <a href="#home" class="active">Home</a>
         <a href="#education">Education</a>
         <a href="#certifications">Certifications</a>
         <a href="#skills">Skills</a>
@@ -47,57 +46,56 @@
         <a href="#contact">Contact</a>
       </nav>
     </div>
-  </header>
+  </div>
+</header>
 
-  <!-- ===== Hero Section ===== -->
-  <section id="home" class="hero relative overflow-hidden min-h-screen flex flex-col md:flex-row items-center justify-center text-center md:text-left px-6 bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364] text-white">
-
-    <!-- Background Canvas -->
-    <canvas id="hero-canvas" class="absolute top-0 left-0 w-full h-full z-0"></canvas>
-
-    <!-- Hero Text -->
-    <div class="hero-text z-10 max-w-3xl mx-auto md:mr-10 animate-fade-in-up">
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 leading-tight drop-shadow-2xl">
-        <span class="block text-[var(--primary-color)] animate-glow">Hi 👋, I'm</span>
-        <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500">
-          Aakash Barasiya
-        </span>
+<!-- ===== Hero Section ===== -->
+<section id="home" class="hero">
+  <canvas id="hero-canvas" class="canvas-bg"></canvas>
+  <div class="hero-container">
+    <div class="hero-text">
+      <h1>
+        <span class="greeting">Hi 👋, I'm</span><br />
+        <span class="name">Aakash Barasiya</span>
       </h1>
-
-      <h3 class="text-xl sm:text-2xl md:text-3xl mb-4 font-medium text-gray-200 tracking-wide">
-        <span class="fade-in delay-1">Frontend Developer</span>
-        <span class="fade-in delay-2 text-cyan-300 ml-2">Java Programmer</span>
-      </h3>
-
-      <p class="text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed">
+      <h2>
+        <span>Frontend Developer</span>
+        <span class="highlight">Java Programmer</span>
+      </h2>
+      <p>
         Crafting responsive web apps with clean UI & quality code.<br />
-        B.Tech CS @ SISTec | Passionate about <span class="text-cyan-400">React</span>, <span class="text-cyan-400">DBMS</span>, and <span class="text-cyan-400">Java</span>.
+        B.Tech CS @ SISTec | Passionate about <span class="highlight">React</span>,
+        <span class="highlight">DBMS</span>, and <span class="highlight">Java</span>.
       </p>
-
-     
-    </div>
-
-    <!-- Hero Image -->
-    <div class="hero-img z-10 mt-10 md:mt-0 fade-in delay-2">
-      <div class="tilt-container max-w-xs md:max-w-sm mx-auto md:ml-10">
-        <img src="aakash.jpg" alt="Aakash Barasiya" class="rounded-2xl shadow-2xl hover:shadow-cyan-400/40 transition duration-500" />
+      <div class="hero-buttons">
+        <a href="#projects" class="btn">View Projects</a>
+        <a href="#contact" class="btn secondary">Hire Me</a>
       </div>
     </div>
-  </section>
+    <div class="hero-img">
+      <div class="tilt-container">
+        <img src="aakash.jpg" alt="Aakash Barasiya" />
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- ===== Floating Social Links (Left) ===== -->
+<!-- ===== JavaScript Link ===== -->
+<script src="script.js"></script>
+</body>
+</html>
+
+
+  <!-- ===== Floating Social Icons ===== -->
   <div class="social-left">
     <a href="https://github.com/barasiya" target="_blank"><i class="fab fa-github"></i></a>
     <a href="https://www.linkedin.com/in/aakash-barasiya-13173b215" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://www.instagram.com/akash_12sia_02?igsh=MTd1cXQ5bGVkNzdkMw==" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.instagram.com/akash_12sia_02" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="mailto:aakashbarasiya2001@gmail.com"><i class="fas fa-envelope"></i></a>
     <a href="https://wa.me/919575133239?text=Hi%20Aakash%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank"><i class="fab fa-whatsapp"></i></a>
   </div>
 
-  <!-- ===== Script linked here ===== -->
-  <script src="script.js" defer></script>
-</body>
-</html>
+  
 
 
 
@@ -511,41 +509,25 @@
 
 
 
+ <!-- ===== Share Button ===== -->
+  <div class="share-container">
+    <input type="checkbox" id="toggle-share" hidden>
+    <label for="toggle-share" class="share-btn">
+      <i class="fas fa-share-alt"></i>
+    </label>
+    <ul class="social-icons">
+      <li><a href="https://twitter.com/intent/tweet?url=https://aakash-portfolio-2025.vercel.app/" target="_blank"><i class="fab fa-x-twitter"></i></a></li>
+      <li><a href="https://www.reddit.com/submit?url=https://aakash-portfolio-2025.vercel.app/" target="_blank"><i class="fab fa-reddit-alien"></i></a></li>
+      <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://aakash-portfolio-2025.vercel.app/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+      <li><a href="https://www.instagram.com/akash_12sia_02" target="_blank"><i class="fab fa-instagram"></i></a></li>
+      <li><a href="https://github.com/barasiya" target="_blank"><i class="fab fa-github"></i></a></li>
+      <li><a href="https://www.youtube.com/@yourchannelname" target="_blank"><i class="fab fa-youtube"></i></a></li>
+      <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://aakash-portfolio-2025.vercel.app/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+      <li><a href="https://wa.me/919575133239?text=Hi%20Aakash%2C%20I%20visited%20your%20portfolio%3A%20https%3A%2F%2Faakash-portfolio-2025.vercel.app%2F%20and%20would%20like%20to%20connect." target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+    </ul>
+  </div>
 
-<!-- ==== SHARE BUTTON ==== -->
-<link rel="stylesheet" href="share.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-<div class="share-container">
-  <input type="checkbox" id="toggle-share" hidden>
-  <label for="toggle-share" class="share-btn">
-    <i class="fas fa-share-alt"></i>
-  </label>
-
-  <ul class="social-icons">
-    <li><a href="https://twitter.com/intent/tweet?url=https://aakash-portfolio-2025.vercel.app/" target="_blank"><i class="fab fa-x-twitter"></i></a></li>
-    <li><a href="https://www.reddit.com/submit?url=https://aakash-portfolio-2025.vercel.app/" target="_blank"><i class="fab fa-reddit-alien"></i></a></li>
-    <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://aakash-portfolio-2025.vercel.app/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-    <li><a href="https://www.instagram.com/akash_12sia_02" target="_blank"><i class="fab fa-instagram"></i></a></li>
-    <li><a href="https://github.com/barasiya" target="_blank"><i class="fab fa-github"></i></a></li>
-    <li><a href="https://www.youtube.com/@yourchannelname" target="_blank"><i class="fab fa-youtube"></i></a></li>
-    <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://aakash-portfolio-2025.vercel.app/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-    <li><a href="https://wa.me/919575133239?text=Hi%20Aakash%2C%20I%20visited%20your%20portfolio%3A%20https%3A%2F%2Faakash-portfolio-2025.vercel.app%2F%20and%20would%20like%20to%20connect." target="_blank"><i class="fab fa-whatsapp"></i></a></li>
-  </ul>
-</div>
-
-
-<!-- ✅ Link to your custom stylesheet -->
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-</head>
-<body>
-
-  <!-- Your sections like header, main content, etc. -->
-
-  <!-- ==== FOOTER SECTION ==== -->
+  <!-- ===== Footer ===== -->
   <footer class="site-footer">
     <div class="footer-social">
       <a href="https://github.com/barasiya" target="_blank"><i class="fab fa-github"></i></a>
@@ -554,7 +536,6 @@
       <a href="mailto:aakashbarasiya2001@gmail.com"><i class="fas fa-envelope"></i></a>
       <a href="https://wa.me/919575133239" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
-
     <nav class="footer-nav">
       <a href="#home">Home</a>
       <a href="#education">Education</a>
@@ -564,11 +545,10 @@
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
-
     <p class="footer-credit">© Made By || <strong>Aakash Barasiya</strong></p>
   </footer>
 
-  <!-- Your main JS file -->
-  <script src="script.js"></script>
+  <!-- JavaScript -->
+  <script src="script.js" defer></script>
 </body>
 </html>

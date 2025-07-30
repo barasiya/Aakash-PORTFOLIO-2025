@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (menuToggle && navContainer) {
     menuToggle.addEventListener("click", () => {
-      navContainer.classList.toggle("active");
+      navContainer.classList.toggle("open");
       menuToggle.classList.toggle("open");
     });
   }
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
   navLinks.forEach(link => {
     link.addEventListener("click", () => {
       if (navContainer && menuToggle) {
-        navContainer.classList.remove("active");
+        navContainer.classList.remove("open");
         menuToggle.classList.remove("open");
       }
     });
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ===== Scroll-Based Nav Highlight (merged) =====
+  // ===== Scroll-Based Nav Highlight =====
   window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
     const sections = document.querySelectorAll("section[id]");
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===== Animate on Scroll (Fade-in Elements) =====
+  // ===== Animate on Scroll (Fade-in) =====
   const fadeElems = document.querySelectorAll('.fade-in');
   const appearOnScroll = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   fadeElems.forEach(el => appearOnScroll.observe(el));
 
-  // ===== Scroll Reveal for .reveal Elements =====
+  // ===== Scroll Reveal for .reveal =====
   window.addEventListener('scroll', () => {
     document.querySelectorAll('.reveal').forEach(el => {
       const top = el.getBoundingClientRect().top;
@@ -172,13 +172,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-});
 
-
-
-
-
-window.addEventListener("scroll", () => {
+  // ===== Education Cards Animation =====
   document.querySelectorAll(".education-card").forEach(card => {
     const rect = card.getBoundingClientRect();
     if (rect.top < window.innerHeight - 100) {
