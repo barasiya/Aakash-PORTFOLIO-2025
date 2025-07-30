@@ -19,11 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function applySavedTheme() {
     const savedTheme = localStorage.getItem("theme") || "auto";
     if (themeToggle) themeToggle.value = savedTheme;
-    if (savedTheme === "auto") {
-      setTheme(prefersDark ? "dark" : "light");
-    } else {
-      setTheme(savedTheme);
-    }
+    setTheme(savedTheme === "auto" ? (prefersDark ? "dark" : "light") : savedTheme);
   }
 
   if (themeToggle) {
