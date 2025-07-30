@@ -150,16 +150,15 @@ a {
 
 
 
-
-/* ===== HERO SECTION AS CARD ===== */
+/* ===== HERO SECTION CLEANED ===== */
 .hero {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 120px;
-  padding-bottom: 40px;
+  padding: 120px 20px 60px;
   width: 100%;
   min-height: 70vh;
+  background: transparent;
 }
 
 .hero-container {
@@ -167,78 +166,64 @@ a {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 50px;
   max-width: 1200px;
   margin: 0 auto;
-  width: 90%;
-  background: rgb(234, 234, 241);
-  border: 2px solid rgba(0, 245, 255, 0.3);
-  border-radius: 24px;
-  padding: 40px;
-  box-shadow: 0 0 25px rgba(0, 245, 255, 0.1),
-              0 0 35px rgba(255, 0, 245, 0.05),
-              inset 0 0 12px rgba(0, 245, 255, 0.1);
-  transition: transform 0.4s ease;
-  animation: fadeIn 1.2s ease;
-  backdrop-filter: blur(12px);
+  width: 100%;
+  padding: 0 20px;
 }
 
-.hero-container:hover {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 0 30px rgba(0, 245, 255, 0.4),
-              0 0 50px rgba(255, 0, 245, 0.2),
-              inset 0 0 16px rgba(0, 245, 255, 0.2);
-}
-
-/* TEXT SIDE */
+/* LEFT TEXT */
 .hero-text {
   flex: 1;
   padding: 10px;
-  transform: perspective(800px) rotateY(-4deg);
+  transform: perspective(900px) rotateY(-3deg);
 }
 
 .hero-text h1 {
-  font-size: 2.6rem;
-  margin-bottom: 0.4rem;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
   color: var(--highlight);
+  letter-spacing: 0.5px;
 }
 
 .hero-text .name {
-  font-size: 3.4rem;
+  font-size: 3.8rem;
   font-weight: 800;
   color: var(--accent);
   text-shadow: 0 0 12px rgba(0, 245, 255, 0.8);
 }
 
 .hero-text h2 {
-  font-size: 1.8rem;
-  margin-top: 8px;
+  font-size: 2rem;
+  margin-top: 10px;
   color: #0d0000;
 }
 
 .hero-text p {
-  margin: 16px 0;
+  margin: 20px 0;
   color: #000f13;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 500;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.4px;
+  max-width: 600px;
 }
 
+/* BUTTONS */
 .hero-buttons {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   flex-wrap: wrap;
-  margin-top: 10px;
+  margin-top: 16px;
 }
 
-/* IMAGE SIDE */
+/* RIGHT IMAGE */
 .hero-img {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .hero-img img {
   width: 300px;
   height: 300px;
@@ -255,36 +240,35 @@ a {
   transition: transform 0.5s ease;
   transform: perspective(1000px) rotateY(8deg);
 }
-
 .hero-img img:hover {
   transform: perspective(1000px) rotateY(0deg) scale(1.05);
 }
 
-/* ===== ANIMATION ===== */
+/* ANIMATIONS */
 @keyframes spinBorder {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-/* ===== MOBILE VERSION ===== */
+/* ===== MOBILE ===== */
 @media screen and (max-width: 768px) {
+  .hero {
+    padding-top: 100px;
+  }
+
   .hero-container {
     flex-direction: column;
-    padding: 30px 20px;
-    gap: 30px;
-    margin: 0 10px;
+    align-items: center;
+    gap: 60px; /* increased from 40px to 60px */
+  }
+
+  .hero-img {
+    margin-bottom: 20px; /* extra space below the image */
   }
 
   .hero-img img {
@@ -295,18 +279,19 @@ a {
   .hero-text {
     text-align: center;
     transform: none;
+    margin-top: 10px; /* optional top margin for better spacing */
   }
 
   .hero-text h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .hero-text .name {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 
   .hero-text h2 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
 
   .hero-text p {
@@ -315,6 +300,8 @@ a {
 
   .hero-buttons {
     justify-content: center;
+    margin-top: 20px; /* more spacing above buttons */
+    gap: 16px; /* slightly increased space between buttons */
   }
 }
 
