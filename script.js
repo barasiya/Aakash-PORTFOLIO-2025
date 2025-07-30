@@ -1,3 +1,5 @@
+// script.js
+
 document.addEventListener("DOMContentLoaded", () => {
   // ===== Theme Toggle =====
   const themeToggle = document.getElementById("theme-toggle");
@@ -7,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function setTheme(mode) {
     root.setAttribute("data-theme", mode);
     localStorage.setItem("theme", mode);
+
     if (mode === "dark") {
       root.style.setProperty('--bg-color', '#0f172a');
       root.style.setProperty('--text-color', '#f8fafc');
@@ -19,117 +22,96 @@ document.addEventListener("DOMContentLoaded", () => {
   function applySavedTheme() {
     const savedTheme = localStorage.getItem("theme") || "auto";
     if (themeToggle) themeToggle.value = savedTheme;
-    setTheme(savedTheme === "auto" ? (prefersDark ? "dark" : "light") : savedTheme);
+
+    if (savedTheme === "auto") {
+      setTheme(prefersDark ? "dark" : "light");
+    } else {
+      setTheme(savedTheme);
+    }
   }
 
   if (themeToggle) {
     themeToggle.addEventListener("change", () => {
       const selected = themeToggle.value;
-      setTheme(selected === "auto" ? (prefersDark ? "dark" : "light") : selected);
+      if (selected === "auto") {
+        setTheme(prefersDark ? "dark" : "light");
+      } else {
+        setTheme(selected);
+      }
     });
   }
 
   applySavedTheme();
 
   // ===== Mobile Menu Toggle =====
-  const menuToggle = document.getElementById("menu-toggle") || document.querySelector(".menu-toggle");
-  const navContainer = document.getElementById("navbar") || document.querySelector(".nav-container");
-  const openIcon = document.getElementById("open-icon");
-  const closeIcon = document.getElementById("close-icon");
+  const menuToggle = document.getElementById("menu-toggle");
+  const navContainer = document.getElementById("nav-container");
 
   if (menuToggle && navContainer) {
     menuToggle.addEventListener("click", () => {
-      navContainer.classList.toggle("show");
+      navContainer.classList.toggle("active");
       menuToggle.classList.toggle("open");
-
-      const isVisible = navContainer.classList.contains("show");
-      if (openIcon && closeIcon) {
-        openIcon.style.display = isVisible ? "none" : "inline-block";
-        closeIcon.style.display = isVisible ? "inline-block" : "none";
-      }
     });
   }
 
-  const navLinks = document.querySelectorAll(".nav-container a");
+  // ===== Close Mobile Nav on Link Click =====
+  const navLinks = document.querySelectorAll(".nav-container nav a");
   navLinks.forEach(link => {
     link.addEventListener("click", () => {
-      navContainer?.classList.remove("show");
-      menuToggle?.classList.remove("open");
-      if (openIcon && closeIcon) {
-        openIcon.style.display = "inline-block";
-        closeIcon.style.display = "none";
+      if (navContainer && menuToggle) {
+        navContainer.classList.remove("active");
+        menuToggle.classList.remove("open");
       }
     });
   });
 
-  // ===== Scroll Animations =====
-  const fadeElems = document.querySelectorAll(".fade-in");
-  const fadeObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("appear");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  fadeElems.forEach(el => fadeObserver.observe(el));
-
-  const revealElems = document.querySelectorAll(".reveal");
-  function handleReveal() {
-    revealElems.forEach(el => {
-      const top = el.getBoundingClientRect().top;
-      if (top < window.innerHeight - 100) {
-        el.classList.add("visible");
-      }
-    });
-  }
-
-  // ===== Scroll-Based Nav Highlight =====
+  // ===== Sidebar Smooth Scroll =====
   const sidebarLinks = document.querySelectorAll('.sidebar a[href^="#"]');
-  window.addEventListener("scroll", () => {
-    handleReveal();
+  sidebarLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
 
+  // ===== Scroll-Based Nav Highlight (merged) =====
+  window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
     const sections = document.querySelectorAll("section[id]");
+
     let current = "";
-    sections.forEach(section => {
+
+    sections.forEach((section) => {
       const sectionTop = section.offsetTop - 120;
       const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute("id");
+
       if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        current = section.getAttribute("id");
+        current = sectionId;
       }
     });
 
-    [...sidebarLinks, ...navLinks].forEach(link => {
+    // Highlight sidebar links
+    sidebarLinks.forEach(link => {
       link.classList.remove("active");
       if (link.getAttribute("href") === `#${current}`) {
         link.classList.add("active");
       }
     });
 
-    // ===== Education Cards Scroll Effect =====
-    document.querySelectorAll(".education-card").forEach(card => {
-      const rect = card.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        card.style.opacity = 1;
-        card.style.animationPlayState = "running";
+    // Highlight top nav links
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}` || link.getAttribute("href").includes(current)) {
+        link.classList.add("active");
       }
     });
   });
 
-  // ===== Smooth Scroll for All Anchors =====
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-
-  // ===== Hero Tilt Effect =====
+  // ===== Hero Tilt Effect (3D Image Movement) =====
   document.querySelectorAll(".tilt-container").forEach(el => {
     el.addEventListener("mousemove", e => {
       const { width, height, left, top } = el.getBoundingClientRect();
@@ -139,6 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const rotateY = ((x / width) - 0.5) * -10;
       el.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     });
+
     el.addEventListener("mouseleave", () => {
       el.style.transform = `rotateX(0deg) rotateY(0deg)`;
     });
@@ -147,9 +130,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===== Contact Form Thank You Message =====
   const form = document.getElementById("custom-contact-form");
   const thankYou = document.getElementById("local-thank-you");
+
   if (form && thankYou) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+    form.addEventListener("submit", function () {
       setTimeout(() => {
         thankYou.style.display = "block";
         form.reset();
@@ -160,34 +143,47 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===== Toggle Share Icons =====
   const toggleShare = document.getElementById("toggle-share");
   const socialIcons = document.querySelector(".social-icons");
+
   if (toggleShare && socialIcons) {
     toggleShare.addEventListener("change", () => {
       socialIcons.classList.toggle("visible", toggleShare.checked);
     });
   }
 
-  // ===== Button Glow Effect =====
-  const buttons = document.querySelectorAll(".btn");
-  buttons.forEach((btn) => {
-    btn.addEventListener("mouseenter", () => btn.classList.add("glow"));
-    btn.addEventListener("mouseleave", () => btn.classList.remove("glow"));
-  });
+  // ===== Animate on Scroll (Fade-in Elements) =====
+  const fadeElems = document.querySelectorAll('.fade-in');
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('appear');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.1 });
 
-  // Trigger initial reveal
-  handleReveal();
+  fadeElems.forEach(el => appearOnScroll.observe(el));
+
+  // ===== Scroll Reveal for .reveal Elements =====
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('.reveal').forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      const winHeight = window.innerHeight;
+      if (top < winHeight - 100) {
+        el.classList.add('visible');
+      }
+    });
+  });
 });
 
-// ===== Redundant Manual Toggle Logic (optional fallback) =====
-const menuToggle = document.getElementById("menu-toggle");
-const navContainer = document.getElementById("navbar");
-const openIcon = document.getElementById("open-icon");
-const closeIcon = document.getElementById("close-icon");
 
-if (menuToggle && navContainer && openIcon && closeIcon) {
-  menuToggle.addEventListener("click", () => {
-    navContainer.classList.toggle("show");
-    const isOpen = navContainer.classList.contains("show");
-    openIcon.style.display = isOpen ? "none" : "inline";
-    closeIcon.style.display = isOpen ? "inline" : "none";
+
+
+
+window.addEventListener("scroll", () => {
+  document.querySelectorAll(".education-card").forEach(card => {
+    const rect = card.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      card.style.opacity = 1;
+      card.style.animationPlayState = "running";
+    }
   });
-}
+});
