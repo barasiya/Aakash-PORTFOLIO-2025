@@ -29,6 +29,26 @@ a {
   --transition: 0.4s ease;
 }
 
+/* ===== SCROLL ANIMATIONS ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ===== HEADER ===== */
 .header-glass {
   position: fixed;
@@ -38,7 +58,7 @@ a {
   background: rgba(13, 13, 26, 0.9);
   backdrop-filter: blur(14px);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 12px 40px;
   z-index: 1000;
@@ -46,8 +66,6 @@ a {
   animation: fadeInDown 1s ease-out;
 }
 .header-left {
-  position: absolute;
-  left: 40px;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -326,11 +344,8 @@ a {
     padding: 16px 20px;
   }
   .header-left {
-    position: static;
     justify-content: space-between;
-    display: flex;
     width: 100%;
-    margin-bottom: 10px;
   }
   .menu-toggle {
     display: block;
