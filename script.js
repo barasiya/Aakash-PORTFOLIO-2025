@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener("DOMContentLoaded", () => {
   // ===== Theme Toggle =====
   const themeToggle = document.getElementById("theme-toggle");
@@ -9,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function setTheme(mode) {
     root.setAttribute("data-theme", mode);
     localStorage.setItem("theme", mode);
-
     if (mode === "dark") {
       root.style.setProperty('--bg-color', '#0f172a');
       root.style.setProperty('--text-color', '#f8fafc');
@@ -22,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function applySavedTheme() {
     const savedTheme = localStorage.getItem("theme") || "auto";
     if (themeToggle) themeToggle.value = savedTheme;
-
     if (savedTheme === "auto") {
       setTheme(prefersDark ? "dark" : "light");
     } else {
@@ -33,11 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (themeToggle) {
     themeToggle.addEventListener("change", () => {
       const selected = themeToggle.value;
-      if (selected === "auto") {
-        setTheme(prefersDark ? "dark" : "light");
-      } else {
-        setTheme(selected);
-      }
+      setTheme(selected === "auto" ? (prefersDark ? "dark" : "light") : selected);
     });
   }
 
@@ -48,9 +40,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const navContainer = document.getElementById("nav-container");
 
   if (menuToggle && navContainer) {
+    let isOpen = false;
     menuToggle.addEventListener("click", () => {
+      isOpen = !isOpen;
       navContainer.classList.toggle("active");
       menuToggle.classList.toggle("open");
+      menuToggle.innerHTML = isOpen ? "&times;" : "&#9776;";
     });
   }
 
@@ -61,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (navContainer && menuToggle) {
         navContainer.classList.remove("active");
         menuToggle.classList.remove("open");
+        menuToggle.innerHTML = "&#9776;";
       }
     });
   });
@@ -77,41 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ===== Scroll-Based Nav Highlight (merged) =====
-  window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
-    const sections = document.querySelectorAll("section[id]");
-
-    let current = "";
-
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 120;
-      const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute("id");
-
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        current = sectionId;
-      }
-    });
-
-    // Highlight sidebar links
-    sidebarLinks.forEach(link => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === `#${current}`) {
-        link.classList.add("active");
-      }
-    });
-
-    // Highlight top nav links
-    navLinks.forEach(link => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === `#${current}` || link.getAttribute("href").includes(current)) {
-        link.classList.add("active");
-      }
-    });
-  });
-
-  // ===== Hero Tilt Effect (3D Image Movement) =====
+  // ===== Hero Tilt Effect =====
   document.querySelectorAll(".tilt-container").forEach(el => {
     el.addEventListener("mousemove", e => {
       const { width, height, left, top } = el.getBoundingClientRect();
@@ -161,24 +123,50 @@ document.addEventListener("DOMContentLoaded", () => {
   }, { threshold: 0.1 });
 
   fadeElems.forEach(el => appearOnScroll.observe(el));
-
-  // ===== Scroll Reveal for .reveal Elements =====
-  window.addEventListener('scroll', () => {
-    document.querySelectorAll('.reveal').forEach(el => {
-      const top = el.getBoundingClientRect().top;
-      const winHeight = window.innerHeight;
-      if (top < winHeight - 100) {
-        el.classList.add('visible');
-      }
-    });
-  });
 });
 
-
-
-
-
+// ===== Unified Scroll Events =====
 window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+  const sections = document.querySelectorAll("section[id]");
+  let current = "";
+
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop - 120;
+    const sectionHeight = section.offsetHeight;
+    const sectionId = section.getAttribute("id");
+
+    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+      current = sectionId;
+    }
+  });
+
+  // Highlight sidebar links
+  document.querySelectorAll('.sidebar a[href^="#"]').forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${current}`) {
+      link.classList.add("active");
+    }
+  });
+
+  // Highlight top nav links
+  document.querySelectorAll(".nav-container nav a").forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${current}` || link.getAttribute("href").includes(current)) {
+      link.classList.add("active");
+    }
+  });
+
+  // Animate .reveal elements
+  document.querySelectorAll('.reveal').forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    const winHeight = window.innerHeight;
+    if (top < winHeight - 100) {
+      el.classList.add('visible');
+    }
+  });
+
+  // Animate .education-card
   document.querySelectorAll(".education-card").forEach(card => {
     const rect = card.getBoundingClientRect();
     if (rect.top < window.innerHeight - 100) {

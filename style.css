@@ -1,11 +1,4 @@
-/* ===== Smooth Scrolling ===== */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
-  overflow-x: hidden;
-}
-
-/* ===== Variables ===== */
+/* ===== Root Variables ===== */
 :root {
   --primary-color: #00f5ff;
   --text-color: #150303;
@@ -14,11 +7,16 @@ html {
   --font-family: 'Barlow Condensed', sans-serif;
 }
 
-/* ===== Reset & Base ===== */
+/* ===== Reset & Base Styles ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  overflow-x: hidden;
 }
 body {
   font-family: var(--font-family);
@@ -44,7 +42,7 @@ img {
   padding: 0 20px;
 }
 
-/* ===== Sticky Header ===== */
+/* ===== Header & Navigation ===== */
 header {
   position: fixed;
   top: 0;
@@ -99,9 +97,12 @@ header {
 }
 .menu-toggle {
   display: none;
-  font-size: 1.8rem;
-  cursor: pointer;
+  font-size: 2rem;
+  background: none;
+  border: none;
   color: var(--primary-color);
+  cursor: pointer;
+  z-index: 1100;
 }
 
 /* ===== Hero Section ===== */
@@ -308,7 +309,7 @@ header {
   100% { transform: rotate(360deg); }
 }
 
-/* ===== Responsive Breakpoints ===== */
+/* ===== Responsive Media Queries ===== */
 @media (max-width: 1024px) {
   .hero-container {
     flex-direction: column;
