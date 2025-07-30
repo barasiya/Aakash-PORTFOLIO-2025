@@ -149,8 +149,7 @@ a {
 
 
 
-
-/* ===== HERO SECTION CLEANED ===== */
+/* ===== HERO SECTION CLEANED & RESPONSIVE ===== */
 .hero {
   display: flex;
   align-items: center;
@@ -224,6 +223,7 @@ a {
   justify-content: center;
   align-items: center;
 }
+
 .hero-img img {
   width: 300px;
   height: 300px;
@@ -240,6 +240,7 @@ a {
   transition: transform 0.5s ease;
   transform: perspective(1000px) rotateY(8deg);
 }
+
 .hero-img img:hover {
   transform: perspective(1000px) rotateY(0deg) scale(1.05);
 }
@@ -250,36 +251,31 @@ a {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.96); }
   to { opacity: 1; transform: scale(1); }
 }
 
-/* ===== MOBILE ===== */
+/* ===== TABLET & SMALL DEVICES (max 768px) ===== */
 @media screen and (max-width: 768px) {
   .hero {
     padding-top: 100px;
   }
 
   .hero-container {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    gap: 60px; /* increased from 40px to 60px */
-  }
-
-  .hero-img {
-    margin-bottom: 20px; /* extra space below the image */
-  }
-
-  .hero-img img {
-    width: 220px;
-    height: 220px;
+    gap: 40px;
   }
 
   .hero-text {
-    text-align: center;
-    transform: none;
-    margin-top: 10px; /* optional top margin for better spacing */
+    flex: 1;
+    padding: 10px;
+    text-align: left;
+    transform: perspective(900px) rotateY(-3deg);
   }
 
   .hero-text h1 {
@@ -299,9 +295,43 @@ a {
   }
 
   .hero-buttons {
+    justify-content: start;
+    margin-top: 20px;
+    gap: 14px;
+  }
+
+  .hero-img {
+    flex: 1;
+    display: flex;
     justify-content: center;
-    margin-top: 20px; /* more spacing above buttons */
-    gap: 16px; /* slightly increased space between buttons */
+    margin: 0;
+  }
+
+  .hero-img img {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+/* ===== VERY SMALL DEVICES (max 480px) ===== */
+@media screen and (max-width: 480px) {
+  .hero-container {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .hero-text {
+    text-align: center;
+    transform: none;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-img img {
+    width: 200px;
+    height: 200px;
   }
 }
 

@@ -4,6 +4,7 @@
   background: #ffffff; /* Light background */
   text-align: center;
   color: #0f2027;
+  font-family: 'Barlow Condensed', sans-serif;
 }
 
 .projects-section .section-title {
@@ -24,6 +25,8 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* ===== 3D Flip Card Base ===== */
@@ -32,6 +35,7 @@
   height: 330px;
   perspective: 1200px;
   transition: transform 0.5s ease-in-out;
+  cursor: pointer;
 }
 
 .card-inner {
@@ -40,49 +44,65 @@
   height: 100%;
   transform-style: preserve-3d;
   transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  background: transparent;
 }
 
-.project-card:hover .card-inner {
+.project-card:hover .card-inner,
+.project-card:focus-within .card-inner {
   transform: rotateY(180deg);
+  box-shadow: 0 15px 40px rgba(0, 245, 255, 0.4);
 }
 
+/* ===== Card Faces ===== */
 .card-face {
   position: absolute;
   width: 100%;
   height: 100%;
   border-radius: 18px;
   padding: 25px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
   backface-visibility: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   transition: all 0.4s ease;
+  box-shadow: inset 0 0 15px rgba(0, 245, 255, 0.1);
 }
 
-/* ===== Front Face Colors ===== */
+/* Front Face Colors - improved gradients */
 .card-face.front.color1 {
-  background: linear-gradient(145deg, #00c6ff, #0072ff);
+  background: linear-gradient(145deg, #00bfff, #005fbb);
   color: #fff;
 }
 .card-face.front.color2 {
-  background: linear-gradient(145deg, #00f5ff, #00888f);
+  background: linear-gradient(145deg, #00e5ff, #006d75);
   color: #fff;
 }
 .card-face.front.color3 {
-  background: linear-gradient(145deg, #ff758c, #ff7eb3);
+  background: linear-gradient(145deg, #ff637d, #ff4a85);
+  color: #fff;
+}
+.card-face.front.color4 {
+  background: linear-gradient(145deg, #5f71d1, #5c3ea5);
+  color: #fff;
+}
+.card-face.front.color5 {
+  background: linear-gradient(145deg, #ff819b, #ffb3bd);
   color: #fff;
 }
 
-/* ===== Back Face ===== */
+/* Back Face - lighter background and better contrast */
 .card-face.back {
-  background: #f2f2f2; /* Light face */
+  background: #e9f6f9;
   transform: rotateY(180deg);
-  color: #1a1a1a;
-  border: 1px solid #00f5ff33;
-  box-shadow: inset 0 0 8px #00f5ff22;
+  color: #003844;
+  border: 1.5px solid #00c2cc88;
+  box-shadow: inset 0 0 12px #00c2cc44;
   text-align: center;
+  padding-top: 40px;
+  font-weight: 600;
 }
 
 /* ===== Content Text Styles ===== */
@@ -90,39 +110,54 @@
   font-size: 1.6rem;
   font-weight: 600;
   margin-bottom: 15px;
-  text-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
 }
 
 .project-desc {
   font-size: 1rem;
   line-height: 1.5;
   text-align: center;
+  color: #0f2027;
 }
 
 .project-tech {
   font-size: 1rem;
-  margin-bottom: 12px;
-  font-weight: 500;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #007a8a;
 }
 
 /* ===== Project Link Button ===== */
 .project-link {
   display: inline-block;
-  margin-top: 12px;
+  margin: 8px 12px;
   padding: 10px 16px;
-  background: #00f5ff;
+  background: #00c2cc;
   color: #000;
   font-weight: 600;
   border-radius: 10px;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0, 245, 255, 0.3);
+  box-shadow: 0 5px 20px rgba(0, 194, 204, 0.4);
+  user-select: none;
 }
 
-.project-link:hover {
-  background: #00c2cc;
+.project-link:hover,
+.project-link:focus {
+  background: #009ea6;
+  box-shadow: 0 5px 30px rgba(0, 158, 166, 0.7);
   transform: scale(1.05);
-  box-shadow: 0 5px 25px rgba(0, 245, 255, 0.5);
+  outline: none;
+}
+
+/* Project image styling */
+.project-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 14px rgba(0, 194, 204, 0.3);
 }
 
 /* ===== Responsive Adjustments ===== */
@@ -135,5 +170,6 @@
   .project-card {
     width: 90%;
     max-width: 320px;
+    margin-bottom: 30px;
   }
 }

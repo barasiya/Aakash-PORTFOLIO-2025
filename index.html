@@ -28,20 +28,14 @@
 
 <body>
   <!-- ===== Header Section ===== -->
- <header class="header-glass">
+ <!-- Header -->
+<header class="header-glass">
   <div class="header-left">
-    <div class="logo">Aakash Barasiya</div>
-    
-    <!-- Hamburger Toggle (Only for Mobile) -->
-    <button id="menu-toggle" class="menu-toggle">
-      <i id="open-icon" class="fas fa-bars"></i>
-      <i id="close-icon" class="fas fa-times" style="display: none;"></i>
-    </button>
+    <h1 class="logo">Aakash Barasiya</h1>
+    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
   </div>
-
-  <!-- Navigation -->
   <div class="nav-wrapper">
-    <nav class="nav-container" id="navbar">
+    <nav class="nav-container" id="nav-container">
       <a href="#home">Home</a>
       <a href="#education">Education</a>
       <a href="#certifications">Certifications</a>
@@ -52,7 +46,6 @@
     </nav>
   </div>
 </header>
-
 
  <!-- ===== Hero Section ===== -->
 <section id="home" class="hero" aria-label="Aakash Barasiya Portfolio Intro">
@@ -348,64 +341,100 @@
 
 
     
-
 <section id="projects" class="projects-section">
   <h2 class="section-title">💼 My <span>Projects</span></h2>
   <div class="projects-container">
 
-    <!-- Project 1 -->
+    <!-- Project 1 (unchanged) -->
     <div class="project-card">
       <div class="card-inner">
         <div class="card-face front color1">
-          <h3 class="project-title">🎓 Student Job Portal</h3>
+          <h3 class="project-title">🎓 Student Job Portal (Project 1)</h3>
           <p class="project-desc">
             Students can register, upload resumes, and apply for jobs posted by recruiters.
           </p>
         </div>
         <div class="card-face back">
           <p class="project-tech"><strong>Tech Stack:</strong> MERN</p>
-          <a href="https://github.com/barasiya/student-job-portal" target="_blank" class="project-link">🔗 GitHub</a>
-          <a href="https://student-job-portal-demo.vercel.app" target="_blank" class="project-link">🌐 Live Demo</a>
+          <a href="https://github.com/barasiya/student-job-portal" target="_blank" rel="noopener noreferrer" class="project-link">🔗 GitHub</a>
+          <a href="https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_1" target="_blank" rel="noopener noreferrer" class="project-link">▶️ Watch Demo Video</a>
         </div>
       </div>
     </div>
 
-    <!-- Project 2 -->
+    <!-- Project 2 (was Project 4, now renumbered to 2) -->
+    <div class="project-card">
+      <div class="card-inner">
+        <div class="card-face front color4">
+          <h3 class="project-title">📈 Crypto Tracker (Project 2)</h3>
+          <p class="project-desc">
+            A real-time cryptocurrency tracker showing price, supply, charts, and market data.
+          </p>
+        </div>
+        <div class="card-face back">
+          <p class="project-tech"><strong>Tech Stack:</strong> React.js, Axios, CoinGecko API</p>
+          <a href="https://github.com/barasiya/crypto-tracker" target="_blank" rel="noopener noreferrer" class="project-link">🔗 GitHub</a>
+          <a href="https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_4" target="_blank" rel="noopener noreferrer" class="project-link">▶️ Watch Demo Video</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 (was Project 5, now renumbered to 3) -->
+    <div class="project-card">
+      <div class="card-inner">
+        <div class="card-face front color5">
+          <img src="w (2).png" alt="Weather App Screenshot" class="project-img" />
+          <h3 class="project-title">🌦️ Weather App (Project 3)</h3>
+          <p class="project-desc">
+            Enter a city to get current temperature, humidity, description, and weather visuals.
+          </p>
+        </div>
+        <div class="card-face back">
+          <p class="project-tech"><strong>Tech Stack:</strong> React.js, OpenWeatherMap API</p>
+          <a href="https://github.com/barasiya/weather-app" target="_blank" rel="noopener noreferrer" class="project-link">🔗 GitHub</a>
+          <p><strong>Live Demo Video:</strong></p>
+          <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank" rel="noopener noreferrer" class="project-link">▶️ Watch on YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4 (was Project 2, now renumbered to 4) -->
     <div class="project-card">
       <div class="card-inner">
         <div class="card-face front color2">
-          <h3 class="project-title">🚗 Carvana-Pro</h3>
+          <h3 class="project-title">🚗 Carvana-Pro (Project 4)</h3>
           <p class="project-desc">
             A modern car rental website with responsive design, animations, and booking features.
           </p>
         </div>
         <div class="card-face back">
           <p class="project-tech"><strong>Tech Stack:</strong> HTML, CSS, JS</p>
-          <a href="https://github.com/barasiya/Carvana-Pro" target="_blank" class="project-link">🔗 GitHub</a>
-          <a href="https://carvana-pro.vercel.app/" target="_blank" class="project-link">🌐 Live Demo</a>
+          <a href="https://github.com/barasiya/Carvana-Pro" target="_blank" rel="noopener noreferrer" class="project-link">🔗 GitHub</a>
+          <a href="https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_2" target="_blank" rel="noopener noreferrer" class="project-link">▶️ Watch Demo Video</a>
         </div>
       </div>
     </div>
 
-    <!-- Project 3 -->
+    <!-- Project 5 (was Project 3, now renumbered to 5) -->
     <div class="project-card">
       <div class="card-inner">
         <div class="card-face front color3">
-          <h3 class="project-title">🏥 Hospital Management System</h3>
+          <h3 class="project-title">🏥 Hospital Management System (Project 5)</h3>
           <p class="project-desc">
             Web-based platform for managing patient records, appointments, billing, and doctors.
           </p>
         </div>
         <div class="card-face back">
           <p class="project-tech"><strong>Tech Stack:</strong> HTML, CSS, JS, PHP, MySQL</p>
-          <a href="https://github.com/barasiya/C-Users-ASUS-Desktop-HCS-WEBSITE-2025" target="_blank" class="project-link">🔗 GitHub</a>
-          
+          <a href="https://github.com/barasiya/C-Users-ASUS-Desktop-HCS-WEBSITE-2025" target="_blank" rel="noopener noreferrer" class="project-link">🔗 GitHub</a>
+          <a href="https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_3" target="_blank" rel="noopener noreferrer" class="project-link">▶️ Watch Demo Video</a>
         </div>
       </div>
     </div>
 
   </div>
 </section>
+
 
 
     
