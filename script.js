@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (menuToggle && navContainer) {
     menuToggle.addEventListener("click", () => {
-      navContainer.classList.toggle("open");
+      navContainer.classList.toggle("active");
       menuToggle.classList.toggle("open");
     });
   }
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
   navLinks.forEach(link => {
     link.addEventListener("click", () => {
       if (navContainer && menuToggle) {
-        navContainer.classList.remove("open");
+        navContainer.classList.remove("active");
         menuToggle.classList.remove("open");
       }
     });
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ===== Scroll-Based Nav Highlight =====
+  // ===== Scroll-Based Nav Highlight (merged) =====
   window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
     const sections = document.querySelectorAll("section[id]");
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===== Animate on Scroll (Fade-in) =====
+  // ===== Animate on Scroll (Fade-in Elements) =====
   const fadeElems = document.querySelectorAll('.fade-in');
   const appearOnScroll = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   fadeElems.forEach(el => appearOnScroll.observe(el));
 
-  // ===== Scroll Reveal for .reveal =====
+  // ===== Scroll Reveal for .reveal Elements =====
   window.addEventListener('scroll', () => {
     document.querySelectorAll('.reveal').forEach(el => {
       const top = el.getBoundingClientRect().top;
@@ -172,13 +172,48 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+});
 
-  // ===== Education Cards Animation =====
+
+
+
+
+window.addEventListener("scroll", () => {
   document.querySelectorAll(".education-card").forEach(card => {
     const rect = card.getBoundingClientRect();
     if (rect.top < window.innerHeight - 100) {
       card.style.opacity = 1;
       card.style.animationPlayState = "running";
     }
+  });
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById("menu-toggle");
+  const navContainer = document.getElementById("nav-container");
+  const openIcon = document.getElementById("open-icon");
+  const closeIcon = document.getElementById("close-icon");
+
+  menuToggle.addEventListener("click", () => {
+    navContainer.classList.toggle("show");
+
+    const isVisible = navContainer.classList.contains("show");
+    openIcon.style.display = isVisible ? "none" : "inline-block";
+    closeIcon.style.display = isVisible ? "inline-block" : "none";
+  });
+
+  // Optional: Close nav when a link is clicked (mobile only)
+  const navLinks = navContainer.querySelectorAll("a");
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      if (navContainer.classList.contains("show")) {
+        navContainer.classList.remove("show");
+        openIcon.style.display = "inline-block";
+        closeIcon.style.display = "none";
+      }
+    });
   });
 });

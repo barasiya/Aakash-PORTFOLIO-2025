@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,7 +12,7 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Main Stylesheets -->
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="education.css" />
   <link rel="stylesheet" href="Works.css" />
@@ -23,37 +24,33 @@
   <link rel="stylesheet" href="myskills.css" />
   <link rel="stylesheet" href="share.css" />
 </head>
+
 <body>
+  <!-- ===== Header Section ===== -->
+  <header class="header-glass">
+  <div class="logo">Aakash Barasiya</div>
 
-<!-- ===== Header ===== -->
-<header>
-  <div class="header-inner">
-    <!-- Logo (Left) -->
-    <div class="logo">Aakash Barasiya</div>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
-    <!-- Hamburger Button (Mobile) -->
-    <button class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">&#9776;</button>
-
-    <!-- Navigation Links (Right) -->
-    <div class="nav-container" id="nav-container">
-      <nav>
-        <a href="#home" class="active">Home</a>
-        <a href="#education">Education</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </div>
+  <nav class="nav-container" id="navbar">
+    <a href="#home">Home</a>
+    <a href="#education">Education</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
-<!-- ===== Hero Section ===== -->
-<section id="home" class="hero">
+
+ <!-- ===== Hero Section ===== -->
+<section id="home" class="hero" aria-label="Aakash Barasiya Portfolio Intro">
   <canvas id="hero-canvas" class="canvas-bg"></canvas>
+
   <div class="hero-container">
-    <div class="hero-text">
+    <!-- Left Text Block -->
+    <div class="hero-text" data-aos="fade-right">
       <h1>
         <span class="greeting">Hi 👋, I'm</span><br />
         <span class="name">Aakash Barasiya</span>
@@ -64,38 +61,43 @@
       </h2>
       <p>
         Crafting responsive web apps with clean UI & quality code.<br />
-        B.Tech CS @ SISTec | Passionate about <span class="highlight">React</span>,
-        <span class="highlight">DBMS</span>, and <span class="highlight">Java</span>.
+        B.Tech CS @ SISTec | Passionate about 
+        <span class="highlight">React</span>, 
+        <span class="highlight">DBMS</span>, and 
+        <span class="highlight">Java</span>.
       </p>
       <div class="hero-buttons">
-        <a href="#projects" class="btn">View Projects</a>
-        <a href="#contact" class="btn secondary">Hire Me</a>
+        <a href="#projects" class="btn primary">🚀 View Projects</a>
+        <a href="#contact" class="btn secondary">📩 Hire Me</a>
       </div>
     </div>
-    <div class="hero-img">
+
+    <!-- Right Image Block -->
+    <div class="hero-img" data-aos="fade-left">
       <div class="tilt-container">
-        <img src="aakash.jpg" alt="Aakash Barasiya" />
+        <img src="aakash.jpg" alt="Portrait of Aakash Barasiya" loading="lazy" />
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== JavaScript Link ===== -->
-<script src="script.js"></script>
-</body>
-</html>
 
 
-  <!-- ===== Floating Social Icons ===== -->
+  <!-- ===== Floating Social Links (Left) ===== -->
   <div class="social-left">
     <a href="https://github.com/barasiya" target="_blank"><i class="fab fa-github"></i></a>
     <a href="https://www.linkedin.com/in/aakash-barasiya-13173b215" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://www.instagram.com/akash_12sia_02" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.instagram.com/akash_12sia_02?igsh=MTd1cXQ5bGVkNzdkMw==" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="mailto:aakashbarasiya2001@gmail.com"><i class="fas fa-envelope"></i></a>
     <a href="https://wa.me/919575133239?text=Hi%20Aakash%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank"><i class="fab fa-whatsapp"></i></a>
   </div>
 
-  
+  <!-- ===== Script ===== -->
+  <script src="script.js" defer></script>
+</body>
+</html>
+
+
 
 
 
@@ -508,10 +510,9 @@
 
 
 
-
  <!-- ===== Share Button ===== -->
   <div class="share-container">
-    <input type="checkbox" id="toggle-share" hidden>
+    <input type="checkbox" id="toggle-share" hidden />
     <label for="toggle-share" class="share-btn">
       <i class="fas fa-share-alt"></i>
     </label>
@@ -527,7 +528,7 @@
     </ul>
   </div>
 
-  <!-- ===== Footer ===== -->
+  <!-- ===== Footer Section ===== -->
   <footer class="site-footer">
     <div class="footer-social">
       <a href="https://github.com/barasiya" target="_blank"><i class="fab fa-github"></i></a>
@@ -545,10 +546,11 @@
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
-    <p class="footer-credit">© Made By || <strong>Aakash Barasiya</strong></p>
+    <p class="footer-credit">© Made By <strong>Aakash Barasiya</strong></p>
   </footer>
 
-  <!-- JavaScript -->
+  <!-- Scripts -->
   <script src="script.js" defer></script>
 </body>
+
 </html>
