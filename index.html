@@ -27,15 +27,22 @@
 </head>
 
 <body>
-  <!-- ===== Header Section ===== -->
- <!-- Header -->
+ <header>
 <header class="header-glass">
   <div class="header-left">
+    <!-- LOGO -->
     <h1 class="logo">Aakash Barasiya</h1>
-    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+
+    <!-- MOBILE MENU TOGGLE BUTTON -->
+    <button id="menu-toggle" class="menu-toggle">
+      <span id="open-icon">☰</span>
+      <span id="close-icon" style="display: none;">✕</span>
+    </button>
   </div>
+
+  <!-- NAVIGATION MENU -->
   <div class="nav-wrapper">
-    <nav class="nav-container" id="nav-container">
+    <nav id="navbar" class="nav-container">
       <a href="#home">Home</a>
       <a href="#education">Education</a>
       <a href="#certifications">Certifications</a>
@@ -46,6 +53,7 @@
     </nav>
   </div>
 </header>
+
 
  <!-- ===== Hero Section ===== -->
 <section id="home" class="hero" aria-label="Aakash Barasiya Portfolio Intro">

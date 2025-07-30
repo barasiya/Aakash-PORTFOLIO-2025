@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Education Cards Scroll Effect
+    // ===== Education Cards Scroll Effect =====
     document.querySelectorAll(".education-card").forEach(card => {
       const rect = card.getBoundingClientRect();
       if (rect.top < window.innerHeight - 100) {
@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===== Button Glow Effect (optional) =====
+  // ===== Button Glow Effect =====
   const buttons = document.querySelectorAll(".btn");
   buttons.forEach((btn) => {
     btn.addEventListener("mouseenter", () => btn.classList.add("glow"));
@@ -176,3 +176,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // Trigger initial reveal
   handleReveal();
 });
+
+// ===== Redundant Manual Toggle Logic (optional fallback) =====
+const menuToggle = document.getElementById("menu-toggle");
+const navContainer = document.getElementById("navbar");
+const openIcon = document.getElementById("open-icon");
+const closeIcon = document.getElementById("close-icon");
+
+if (menuToggle && navContainer && openIcon && closeIcon) {
+  menuToggle.addEventListener("click", () => {
+    navContainer.classList.toggle("show");
+    const isOpen = navContainer.classList.contains("show");
+    openIcon.style.display = isOpen ? "none" : "inline";
+    closeIcon.style.display = isOpen ? "inline" : "none";
+  });
+}
