@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener("DOMContentLoaded", () => {
   // ===== Theme Toggle =====
   const themeToggle = document.getElementById("theme-toggle");
@@ -22,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function applySavedTheme() {
     const savedTheme = localStorage.getItem("theme") || "auto";
     if (themeToggle) themeToggle.value = savedTheme;
-
     if (savedTheme === "auto") {
       setTheme(prefersDark ? "dark" : "light");
     } else {
@@ -45,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ===== Mobile Menu Toggle =====
   const menuToggle = document.getElementById("menu-toggle");
-  const navContainer = document.getElementById("nav-container");
+  const navContainer = document.getElementById("navbar"); // Make sure nav has id="navbar"
   const openIcon = document.getElementById("open-icon");
   const closeIcon = document.getElementById("close-icon");
 
@@ -63,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ===== Close Nav on Link Click (Mobile) =====
-  const navLinks = document.querySelectorAll(".nav-container nav a");
+  const navLinks = document.querySelectorAll(".nav-container a");
   navLinks.forEach(link => {
     link.addEventListener("click", () => {
       if (navContainer && menuToggle) {
@@ -98,10 +95,8 @@ document.addEventListener("DOMContentLoaded", () => {
     sections.forEach(section => {
       const sectionTop = section.offsetTop - 120;
       const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute("id");
-
       if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        current = sectionId;
+        current = section.getAttribute("id");
       }
     });
 
@@ -114,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     navLinks.forEach(link => {
       link.classList.remove("active");
-      if (link.getAttribute("href") === `#${current}` || link.getAttribute("href").includes(current)) {
+      if (link.getAttribute("href") === `#${current}`) {
         link.classList.add("active");
       }
     });
@@ -140,7 +135,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const thankYou = document.getElementById("local-thank-you");
 
   if (form && thankYou) {
-    form.addEventListener("submit", function () {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // Prevent actual submission
       setTimeout(() => {
         thankYou.style.display = "block";
         form.reset();
@@ -158,9 +154,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===== Animate on Scroll =====
+  // ===== Animate on Scroll: .fade-in Elements =====
   const fadeElems = document.querySelectorAll('.fade-in');
-  const observer = new IntersectionObserver((entries, observer) => {
+  const fadeObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('appear');
@@ -168,8 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }, { threshold: 0.1 });
-
-  fadeElems.forEach(el => observer.observe(el));
+  fadeElems.forEach(el => fadeObserver.observe(el));
 
   // ===== Scroll Reveal for .reveal Elements =====
   window.addEventListener('scroll', () => {
@@ -198,10 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute('href'));
       if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });
