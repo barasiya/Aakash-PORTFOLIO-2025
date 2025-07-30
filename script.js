@@ -46,21 +46,33 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===== Mobile Menu Toggle =====
   const menuToggle = document.getElementById("menu-toggle");
   const navContainer = document.getElementById("nav-container");
+  const openIcon = document.getElementById("open-icon");
+  const closeIcon = document.getElementById("close-icon");
 
   if (menuToggle && navContainer) {
     menuToggle.addEventListener("click", () => {
-      navContainer.classList.toggle("active");
+      navContainer.classList.toggle("show");
       menuToggle.classList.toggle("open");
+
+      const isVisible = navContainer.classList.contains("show");
+      if (openIcon && closeIcon) {
+        openIcon.style.display = isVisible ? "none" : "inline-block";
+        closeIcon.style.display = isVisible ? "inline-block" : "none";
+      }
     });
   }
 
-  // ===== Close Mobile Nav on Link Click =====
+  // ===== Close Nav on Link Click (Mobile) =====
   const navLinks = document.querySelectorAll(".nav-container nav a");
   navLinks.forEach(link => {
     link.addEventListener("click", () => {
       if (navContainer && menuToggle) {
-        navContainer.classList.remove("active");
-        menuToggle.classList.remove("open");
+        navContainer.classList.remove("show", "active");
+        menuToggle.classList.remove("open", "active");
+        if (openIcon && closeIcon) {
+          openIcon.style.display = "inline-block";
+          closeIcon.style.display = "none";
+        }
       }
     });
   });
@@ -77,14 +89,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ===== Scroll-Based Nav Highlight (merged) =====
+  // ===== Scroll-Based Nav Highlight =====
   window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
     const sections = document.querySelectorAll("section[id]");
-
     let current = "";
 
-    sections.forEach((section) => {
+    sections.forEach(section => {
       const sectionTop = section.offsetTop - 120;
       const sectionHeight = section.offsetHeight;
       const sectionId = section.getAttribute("id");
@@ -94,7 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Highlight sidebar links
     sidebarLinks.forEach(link => {
       link.classList.remove("active");
       if (link.getAttribute("href") === `#${current}`) {
@@ -102,7 +112,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Highlight top nav links
     navLinks.forEach(link => {
       link.classList.remove("active");
       if (link.getAttribute("href") === `#${current}` || link.getAttribute("href").includes(current)) {
@@ -111,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ===== Hero Tilt Effect (3D Image Movement) =====
+  // ===== Hero Tilt Effect =====
   document.querySelectorAll(".tilt-container").forEach(el => {
     el.addEventListener("mousemove", e => {
       const { width, height, left, top } = el.getBoundingClientRect();
@@ -121,7 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const rotateY = ((x / width) - 0.5) * -10;
       el.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     });
-
     el.addEventListener("mouseleave", () => {
       el.style.transform = `rotateX(0deg) rotateY(0deg)`;
     });
@@ -150,69 +158,50 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===== Animate on Scroll (Fade-in Elements) =====
+  // ===== Animate on Scroll =====
   const fadeElems = document.querySelectorAll('.fade-in');
-  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+  const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('appear');
-      observer.unobserve(entry.target);
+      if (entry.isIntersecting) {
+        entry.target.classList.add('appear');
+        observer.unobserve(entry.target);
+      }
     });
   }, { threshold: 0.1 });
 
-  fadeElems.forEach(el => appearOnScroll.observe(el));
+  fadeElems.forEach(el => observer.observe(el));
 
   // ===== Scroll Reveal for .reveal Elements =====
   window.addEventListener('scroll', () => {
     document.querySelectorAll('.reveal').forEach(el => {
       const top = el.getBoundingClientRect().top;
-      const winHeight = window.innerHeight;
-      if (top < winHeight - 100) {
+      if (top < window.innerHeight - 100) {
         el.classList.add('visible');
       }
     });
   });
-});
 
-
-
-
-
-window.addEventListener("scroll", () => {
-  document.querySelectorAll(".education-card").forEach(card => {
-    const rect = card.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      card.style.opacity = 1;
-      card.style.animationPlayState = "running";
-    }
-  });
-});
-
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const menuToggle = document.getElementById("menu-toggle");
-  const navContainer = document.getElementById("nav-container");
-  const openIcon = document.getElementById("open-icon");
-  const closeIcon = document.getElementById("close-icon");
-
-  menuToggle.addEventListener("click", () => {
-    navContainer.classList.toggle("show");
-
-    const isVisible = navContainer.classList.contains("show");
-    openIcon.style.display = isVisible ? "none" : "inline-block";
-    closeIcon.style.display = isVisible ? "inline-block" : "none";
+  // ===== Education Cards Scroll Effect =====
+  window.addEventListener("scroll", () => {
+    document.querySelectorAll(".education-card").forEach(card => {
+      const rect = card.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        card.style.opacity = 1;
+        card.style.animationPlayState = "running";
+      }
+    });
   });
 
-  // Optional: Close nav when a link is clicked (mobile only)
-  const navLinks = navContainer.querySelectorAll("a");
-  navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      if (navContainer.classList.contains("show")) {
-        navContainer.classList.remove("show");
-        openIcon.style.display = "inline-block";
-        closeIcon.style.display = "none";
+  // ===== Optional Smooth Scroll for all anchor links =====
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
       }
     });
   });
